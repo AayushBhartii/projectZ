@@ -1,0 +1,105 @@
+.investorRelations {
+    font-family: Arial, sans-serif;
+    padding: 40px;
+}
+
+.heroSection {
+    margin-bottom: 50px;
+}
+
+.heroText h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+.heroDescription h2 {
+    font-size: 30px;
+    color: #f05454;
+}
+
+.heroDescription p {
+    font-size: 20px;
+}
+
+.companyOverview {
+    margin-bottom: 50px;
+}
+
+.companyOverview h2 {
+    font-size: 30px;
+    color: #333;
+}
+
+.companyContent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.companyDetails {
+    flex: 1;
+    max-width: 250px;
+}
+
+.viewMore {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+.coreOfferings {
+    margin-bottom: 50px;
+}
+
+.coreOfferings h2 {
+    font-size: 30px;
+    color: #333;
+}
+
+.offerings {
+    display: flex;
+    gap: 40px;
+}
+
+.offering h3 {
+    font-size: 20px;
+}
+
+.esgSection {
+    margin-bottom: 50px;
+}
+
+.blogsSection {
+    margin-bottom: 50px;
+}
+
+.subscriptionSection {
+    margin-bottom: 50px;
+}
+
+.subscriptionForm {
+    display: flex;
+    gap: 10px;
+}
+
+.subscriptionForm input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.subscriptionForm button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.contactSection {
+    margin-bottom: 50px;
+}
+
+.contactSection a {
+    color: #0073e6;
+    text-decoration: none;
+}
