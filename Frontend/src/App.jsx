@@ -22,9 +22,9 @@ function App() {
     <div className={css.bodySize}>
       <div className={css.chooseTypeCards}>
         <SmallCard imgSrc={orderOnlineImg} text="Order Online" link={"/show-case?page=" + orderOnlinePage} />
-        <SmallCard imgSrc={diningoutImg} text="Dining Out" link={'/show-case?page=' + diningOutPage} />
-        <SmallCard imgSrc={proandproplusImg} text="Kitchen" link={'/show-case?page=' + proAndProPlusPage} />
-        <SmallCard imgSrc={nightlifeandclubsImg} text="Night Life and Clubs" link={'/show-case?page=' + nightLifePage} />
+        <SmallCard imgSrc={diningoutImg} text="Dining" link={'/show-case?page=' + diningOutPage} />
+        <SmallCard imgSrc={proandproplusImg} text="Tiffin Services" link={'/show-case?page=' + proAndProPlusPage} />
+        <SmallCard imgSrc={nightlifeandclubsImg} text="Live Events" link={"https://hilarious-vacherin-4dbe73.netlify.app/"} />
       </div>
       
       <Collections/>

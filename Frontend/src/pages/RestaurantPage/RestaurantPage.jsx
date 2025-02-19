@@ -26,9 +26,11 @@ const RestaurantPage = () => {
             Indira Nagar
         </div>
     </div>
+    <OrderTitleComponent />
     <HeroComponent />
+    
     <div className={css.innerDiv2}>
-      <OrderTitleComponent />
+    
       <OrderBodyComponent />
     </div>
     <Footer />

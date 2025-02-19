@@ -5,7 +5,7 @@ import css from './UserHero.module.css'
 import HeroBanner from '/images/profilebanner.jpg'
 import user from '/icons/biryaniC.png'
 import edit from '/icons/edit.png'
-import location from '/icons/location.png'
+// import location from '/icons/location.png'
 
 import EditProfileModal from '../../../Modals/EditProfileModal/EditProfileModal'
 
@@ -25,7 +25,7 @@ const UserHero = () => {
                 </div>
                 <div className={css.profileDetails}>
                   <div className={css.name}>Name</div>
-                  <span className={css.location}> <img src={location} className={css.locationIcon} /> Location</span>
+                  {/* <span className={css.location}> <img src={location} className={css.locationIcon} /> Location</span> */}
                 </div>
               </div>
               <div className={css.rightBox}>
@@ -42,8 +42,8 @@ const UserHero = () => {
                   </span>
                   <hr className={css.bar} />
                   <span className={css.boxTxt}>
-                    <span className={css.count}>1</span>
-                    <span className={css.countTxt}>Followers</span>
+                    {/* <span className={css.count}>1</span>
+                    <span className={css.countTxt}>Followers</span> */}
                   </span>
                 </div>
               </div>

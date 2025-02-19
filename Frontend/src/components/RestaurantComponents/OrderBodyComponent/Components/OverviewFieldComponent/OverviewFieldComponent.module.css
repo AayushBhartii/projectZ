@@ -1,68 +1,81 @@
-.outerDiv{
+.outerDiv {
     width: 100%;
     height: 100%;
-}
-
-.innerDiv{
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .innerDiv {
     width: 100%;
     height: 100%;
     display: flex;
-}
-
-.leftBox{
-    width: 70%;
+    gap: 1rem;
+  }
+  
+  .leftBox {
+    flex: 2;
     height: 100%;
-    margin-right: 1rem;
-    overflow-y: scroll;
-}
-
-.leftBox::-webkit-scrollbar{
+    overflow-y: auto;
+    padding-right: 1rem;
+  }
+  
+  .leftBox::-webkit-scrollbar {
     display: none;
-}
-
-.rightBox{
-    width: 30%;
-}
-
-.ttl{
+  }
+  
+  .rightBox {
+    flex: 1;
+    height: 100%;
+  }
+  
+  .ttl {
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 300;
     color: var(--color-title-text);
-}
-
-.menuSec{
-    margin: 0.5rem 0;
-    width: 100%;
+    margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: white; /* Optional: you can add this to avoid any overlap or transparency issues */
+    z-index: 10; /* Optional: ensures the sticky heading appears above other content */
+    padding: 1rem 0; /* Adds some padding to make it stand out */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow to the sticky header for better visibility */
+  }
+  
+  .menuSec {
+    margin: 1rem 0;
     display: flex;
     justify-content: space-between;
-}
-
-.subTtl{
+    align-items: center;
+  }
+  
+  .subTtl {
     font-size: 1.2rem;
     font-weight: 400;
     color: var(--color-title-text);
-}
-
-.secTxt{
-    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .secTxt, .secTxt1 {
+    color: var(--color-p5-text);
     font-weight: 400;
     margin: 0.5rem 0;
-    color: var(--color-p5-text);
-}
-
-.secTxt1{
+  }
+  
+  .secTxt {
+    font-size: 1rem;
+  }
+  
+  .secTxt1 {
     font-size: 0.8rem;
-    font-weight: 300;
     margin: 0.3rem 0;
-    color: var(--color-p5-text);
-}
-
-.toolTipBox{
+    font-weight: 300;
+  }
+  
+  .toolTipBox {
     width: 100%;
-    /* position: relative; */
-}
-
-.secTxtToolTip{
+  }
+  
+  .secTxtToolTip {
     width: max-content;
     font-size: 0.8rem;
     font-weight: 300;
@@ -70,103 +83,69 @@
     color: var(--color-p5-text);
     cursor: pointer;
     border-bottom: 1px dashed var(--color-p1-text);
-}
-
-/* .toolTip{
-    display: none;
-} */
-
-/* .po{
-    width: max-content;
-    position: relative;
-}
-
-.po:hover .toolTip{
-    position: absolute;
-    top: 0;
-    left: 0;   
-    right:0;
-    font-size: 0.8rem;
-    font-weight: 300;
-    margin: 0.3rem 0;
-    color: var(--color-white);
-    width: 300px;
-    display: block;
-    padding: 1rem;
-    text-align: justify;
-    border-radius: 10px;
-    background-color: var(--bg-blackish);
-} */
-
-.menuLink{
+  }
+  
+  .menuLink {
     text-decoration: none;
     color: var(--color-redish1);
-}
-
-.rightArrowIcon{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .rightArrowIcon {
     width: 10px;
     height: 10px;
     filter: invert(21%) sepia(60%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(100%);
-}
-
-.menuSecBdy{
+  }
+  
+  .menuSecBdy, .secBdy {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .sec {
+    margin: 1.5rem 0;
     width: 100%;
-    min-height: 300px;
-    height: max-content;
+  }
+  
+  .labels {
     display: flex;
     flex-wrap: wrap;
-}
-
-.sec{
-    margin: 1rem 0;
+    gap: 0.5rem;
+  }
+  
+  .sec2 {
+    margin: 1.5rem 0;
     width: 100%;
-    height: max-content;
-}
-
-.secBdy{
-    margin: 1rem 0;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.labels{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.sec2{
-    margin: 1rem 0;
-    width: 100%;
-}
-
-.ulList{
+  }
+  
+  .ulList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
     margin: 0.5rem 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.list{
-    width: 50%;
+  }
+  
+  .list {
     list-style-image: url('/icons/tick-green.png');
-}
-
-
-@media all and (max-width: 780px){
-    .innerDiv{
-        display: flex;
-        flex-wrap: wrap;
+    padding-left: 1.5rem;
+  }
+  
+  @media (max-width: 780px) {
+    .innerDiv {
+      flex-direction: column;
     }
-    
-    .leftBox{
-        width: 100%;
-        height: 100%;
+  
+    .leftBox, .rightBox {
+      width: 100%;
+      padding-right: 0;
     }
-    
-    .rightBox{
-        width: 100%;
+  
+    .menuSecBdy, .secBdy, .ulList {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
-}
+  }
+  

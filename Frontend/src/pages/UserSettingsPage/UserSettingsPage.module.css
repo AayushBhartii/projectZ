@@ -1,56 +1,175 @@
-.outerDiv{
+/* 🔹 General Layout */
+.outerDiv {
     width: 100%;
-    height: 100%;
+    height: auto;
+    padding: 1rem 0;
 }
 
-.innerDiv{
-    width: 100%;
-    height: 100%;
+.innerDiv {
     display: flex;
-    justify-content: center;
-}
-
-.bdy{
-    width: 60%;
-    height: 100%;
-}
-
-.header{
     width: 100%;
-    margin: 1rem 0;
+    height: 100%;
+    position: relative;
+}
+
+/* 🔹 Sidebar */
+.sidebar {
+    width: 250px;
+    background: #f8f8f8;
+    padding: 1rem;
+    border-right: 1px solid #ddd;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background: #e0e0e0;
+}
+
+.sidebar .active {
+    font-weight: bold;
+    color: #333;
+    border-left: 4px solid #007bff;
+    padding-left: 0.8rem;
+    background: #e6f0ff;
+}
+
+/* 🔹 Sidebar Toggle Button (for Mobile) */
+.menuBtn {
+    display: none;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* 🔹 Main Content */
+.bdy {
+    width: calc(100% - 250px);
+    padding: 2rem;
+}
+
+.header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-.ttl{
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--color-title-text);
+.ttl {
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
-.tag{
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    color: var(--color-text);
+.tag {
+    font-size: 0.9rem;
+    color: #666;
 }
 
-.settingsBdy{
-    width: 100%;
-    height: 100%;
-    margin: 1rem 0;
+.settingsBdy {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
 }
 
-.checkBoxesTtl{
-    width: 100%;
+/* 🔹 Placeholder for Other Tabs */
+.placeholder {
+    text-align: center;
+    padding: 50px;
+}
+
+/* 🔹 Notification Settings Header */
+.settingsHeader {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
 }
 
-.chbkTtl{
-    margin: 1rem;
+.notificationType {
+    flex: 1;
 }
 
-.hr{
+.toggleHeaders {
+    display: flex;
+    gap: 2rem;
+    width: 170px;
+}
+
+.toggleHeader {
+    width: 80px;
+    text-align: center;
+}
+
+/* 🔹 Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+    .menuBtn {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar {
+        position: absolute;
+        left: -260px;
+        top: 0;
+        height: 100vh;
+        background: #f8f8f8;
+        padding-top: 2rem;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .bdy {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+.securitySection, .privacySection {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.deleteBtn {
+    background: #d9534f;
+    color: white;
+    padding: 10px 15px;
     border: none;
-    border-bottom: 1px solid var(--color-ash);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.deleteBtn:hover {
+    background: #c9302c;
+}
+
+.warningText {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+.privacyOptions label {
+    display: block;
+    margin: 8px 0;
+    font-size: 1rem;
 }

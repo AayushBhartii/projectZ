@@ -11,7 +11,7 @@ import star from '/icons/star.png';
 let ShowcaseCard = (props) => {
     const { link2, promoted, time, offB, proExtraB, off, proExtra, name, rating, imgSrc } = props;
     let link = "/" + "hyderabad/paraside/order";
-    return <Link className={css.outerDiv} to={link}>
+    return <Link className={css.outerDiv} to={link2}>
         <div className={css.innerDiv}>
             <div className={css.imgBox}>
                 {promoted && <div className={css.promoted}>Promoted</div>}
@@ -30,18 +30,18 @@ let ShowcaseCard = (props) => {
                     <div className={css.tagTxt}>₹<span className={css.type}>350</span> for <span className={css.num}>One</span></div>
                 </div>
             </div>
-            <div className={css.footer}>
+            {/* <div className={css.footer}>
                 <div className={css.scroll1}>
                     <div className={css.lg1}><img className={css.upArrow} src={upArrowIcon} alt="gorwing arrow" /></div>
                     <div className={css.ordersPlaces}>9000+ orders placed from here recently</div>
                     <div className={css.lg2}><img className={css.maxSafety} src={maxSAfety} alt="max safety" /></div>
-                </div>
-                <div className={css.scroll2}>
+                </div> */}
+                {/* <div className={css.scroll2}>
                     <div className={css.lg1}><img className={css.upArrow} src={upArrowIcon} alt="max safety" /></div>
                     <div className={css.ordersPlaces}>Follows all max safety mesaures to ensure your food is safe</div>
                     <div className={css.lg2}><img className={css.safeDelivery} src={safeDelivery} alt="safety delivery" /></div>
-                </div>
-            </div>
+                </div> */}
+            {/* </div> */}
         </div>
     </Link>
 }

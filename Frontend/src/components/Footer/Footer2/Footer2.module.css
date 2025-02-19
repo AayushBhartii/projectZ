@@ -1,0 +1,134 @@
+.main {
+    min-width: 100vw;
+    overflow: hidden;
+    padding: 20px 100px;
+    background-color: #272C35;
+
+    color: #A9AFB5;
+}
+
+.box1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.langBox {
+    background-color: rgb(42, 42, 42);
+    color: white;
+    padding: 15px 15px;
+    display: flex;
+    gap: 4rem;
+    border-radius: 5px;
+    display: flex;
+}
+
+.hrLine {
+    margin: 10px 0;
+    border-top: 1px solid #394046;
+}
+
+.gridBox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.gridBox2 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+li {
+    cursor: pointer;
+    width: fit-content;
+    font-size: 0.9rem;
+}
+
+.moreLinks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 15px;
+}
+
+.moreLinksInner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.4rem;
+}
+
+.moreLinksInner a {
+    text-decoration: none;
+    color: #A9AFB5;
+
+}
+
+.socialMediaIconsBox {
+    display: flex;
+    gap: 1rem;
+}
+
+.socialMediaIcons {
+    width: 1.2rem;
+    cursor: pointer;
+}
+
+.lastWords {
+    font-size: 0.7rem;
+}
+
+/* ------media query--- */
+
+@media all and (max-width: 768px) {
+    .main {
+        padding-inline: 70px;
+    }
+    .gridBox {
+    grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gridBox2 {
+    grid-template-columns: repeat(3, 1fr);
+    }
+
+    .moreLinksInner {
+        gap: 1rem;
+    }
+}
+@media all and (max-width: 664px) {
+    .main {
+        padding-inline: 30px;
+    }
+
+    .gridBox2 {
+    grid-template-columns: 1fr 1fr;
+    }
+
+    .moreLinksInner {
+        gap: 1rem;
+    }
+.moreLinks {
+    flex-direction: column;
+    gap: 2rem;
+}
+.moreLinksInner {
+    gap: 0.8rem;
+}
+}
+
+@media all and (max-width: 435px) {
+    .moreLinksInner {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

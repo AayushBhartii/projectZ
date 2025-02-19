@@ -20,7 +20,7 @@ const HeroComponent = () => {
           <GalleryImgCard imgSrc={food2Img} />
           <ViewGalleryImgCard imgSrc={food1Img} />
           <GalleryImgCard imgSrc={food3Img} />
-          <AddPhotosCard />
+          {/* <AddPhotosCard /> */}
       </div>
     </div>
   </div>

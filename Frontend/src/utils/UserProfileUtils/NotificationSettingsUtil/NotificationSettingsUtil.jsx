@@ -1,22 +1,30 @@
-import React from 'react'
+import React from "react";
+import css from "./NotificationSettingsUtil.module.css";
 
-import css from './NotificationSettingsUtil.module.css'
+const NotificationSettingsUtil = ({ txt, tag, push, email, onToggle }) => {
+    return (
+        <div className={css.settingRow}>
+            <div className={css.settingInfo}>
+                <div className={css.settingTitle}>{txt}</div>
+                <div className={css.settingDescription}>{tag}</div>
+            </div>
+            <div className={css.settingControls}>
+                {/* Push Notification Toggle */}
+                <label className={css.switchLabel}>
+                    <input type="checkbox" checked={push} onChange={() => onToggle("push")} className={css.toggleInput} />
+                    <span className={css.toggleSlider}></span>
+                </label>
 
-const NotificationSettingsUtil = (props) => {
-  
-  const {txt, tag, push = false, email = false, whatsapp = false, ...restProps} = props;
+                {/* Email Notification Toggle */}
+                {email !== undefined && (
+                    <label className={css.switchLabel}>
+                        <input type="checkbox" checked={email} onChange={() => onToggle("email")} className={css.toggleInput} />
+                        <span className={css.toggleSlider}></span>
+                    </label>
+                )}
+            </div>
+        </div>
+    );
+};
 
-  return <div className={css.outerDiv}>
-    <div className={css.innerDiv}>
-      <div className={css.left}>
-        <div className={css.ttl}>{txt}</div>
-        <div className={css.tag}>{tag}</div>
-      </div>
-      <div className={css.right}>
-        <div className={css.switchCheck}>ssw</div>
-      </div>
-    </div>
-  </div>
-}
-
-export default NotificationSettingsUtil
+export default NotificationSettingsUtil;

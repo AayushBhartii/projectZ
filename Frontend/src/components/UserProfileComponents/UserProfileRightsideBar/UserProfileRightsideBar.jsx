@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import css from './UserProfileRightsideBar.module.css';
 
-import { reviewPage, photosPage, followersPage, recentlyviewedPage, bookmarksPage, blogpostsPage, orderhistoryPage, myaddressPage, favoriteordersPage, bookingsPage } from '../../../helpers/constants';
+import { reviewPage, photosPage, followersPage, recentlyviewedPage, bookmarksPage, blogpostsPage, orderhistoryPage, myaddressPage, favoriteordersPage, bookingsPage, takeawayorderPage } from '../../../helpers/constants';
 
 import ImgSrc from '/images/proandproplus.jpg';
 
@@ -17,6 +17,8 @@ import OrderHistory from '../../../utils/UserProfileUtils/UserProfile/OnlineOrde
 import MyAddresses from '../../../utils/UserProfileUtils/UserProfile/OnlineOrdering/MyAddresses/MyAddresses';
 import FavoriteOrders from '../../../utils/UserProfileUtils/UserProfile/OnlineOrdering/FavoriteOrders/FavoriteOrders';
 import YoursBooking from '../../../utils/UserProfileUtils/UserProfile/TableBooking/YoursBooking/YoursBooking';
+import Takeaway from '../../../utils/UserProfileUtils/UserProfile/OnlineOrdering/TakeawayOrders/TakeawayOrders';
+import TakeawayOrders from '../../../utils/UserProfileUtils/UserProfile/OnlineOrdering/TakeawayOrders/TakeawayOrders';
 
 let UserProfileRightsideBar = () => {
 
@@ -105,6 +107,9 @@ let UserProfileRightsideBar = () => {
         case bookingsPage:
             setCurrComp(<YoursBooking hashId={hashId} />);
             break;
+        case takeawayorderPage:
+            setCurrComp(<TakeawayOrders   hashId={hashId}/>);
+            break;
         default:
             setCurrComp(data?.map((val, index) => {
                 return <UserReviewedCard data={val} key={index} />
@@ -115,7 +120,7 @@ let UserProfileRightsideBar = () => {
     return (
         <div className={css.outerDiv}>
             <div className={css.innerDiv}>
-                <div className={css.title}>Reviews</div>
+                {/* <div className={css.title}>Reviews</div> */}
                 <div className={css.contentBox}>
                     { currComp }
                 </div>

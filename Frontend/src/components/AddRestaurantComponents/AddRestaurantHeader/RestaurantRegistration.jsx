@@ -1,20 +1,54 @@
-import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for programmatic navigation
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import css from "./RestaurantRegistration.module.css";
 
 const RestaurantRegistration = ({ onClose }) => {
-  const navigate = useNavigate(); // Hook to programmatically navigate
+  const navigate = useNavigate();
+  const [selectedServices, setSelectedServices] = useState([]); // Track selected services as an array
 
-  const handleRegisterClick = (serviceType) => {
-    // Redirect based on the selected service type
-    if (serviceType === 'both') {
-      navigate('/Dining');
-    } else if (serviceType === 'delivery') {
-      navigate('/register/delivery');
-    } else if (serviceType === 'dining') {
-      navigate('/register/dining');
+  const handleCardSelect = (serviceType) => {
+    // If the service is already selected, remove it from the array
+    if (selectedServices.includes(serviceType)) {
+      setSelectedServices(selectedServices.filter((service) => service !== serviceType));
+    } else {
+      // Otherwise, add it to the array
+      setSelectedServices([...selectedServices, serviceType]);
     }
   };
+
+  const handleRegisterClick = () => {
+    // Navigate based on selected services
+    if (selectedServices.includes("both")) {
+      navigate("/Dining");
+    } else if (selectedServices.includes("delivery")) {
+      navigate("/Dining");
+    } else if (selectedServices.includes("dining")) {
+      navigate("/Dining");
+    } else if (selectedServices.includes("tiffin")) {
+      navigate("/tiffin");
+    }
+  };
+
+  const services = [
+    {
+      id: "both",
+      title: "Takeaway",
+      description: "List your restaurant on both the delivery and dining sections.",
+      imgSrc: "/Project Images/both.avif",
+    },
+    {
+      id: "dining",
+      title: "Dining",
+      description: "List your restaurant in the dining section only.",
+      imgSrc: "/Project Images/dining.avif",
+    },
+    {
+      id: "tiffin",
+      title: "Tiffin",
+      description: "List your Tiffin in the delivery section only.",
+      imgSrc: "/Project Images/food.avif",
+    },
+  ];
 
   return (
     <div className={css.modalOverlay}>
@@ -24,62 +58,35 @@ const RestaurantRegistration = ({ onClose }) => {
         </button>
         <h1>Select the service you want to register.</h1>
 
-        {/* Both Food Delivery & Dining */}
-        <div className={css.serviceOption}>
-          <div className={css.textContainer}>
-            <h2>Both Food Delivery & Dining</h2>
-            <p>List your restaurant on both the delivery and dining sections</p>
-            <button
-              className={css.btn}
-              onClick={() => handleRegisterClick('both')}
+        <div className={css.serviceContainer}>
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className={`${css.serviceOption} ${
+                selectedServices.includes(service.id) ? css.selected : ""
+              }`}
+              onClick={() => handleCardSelect(service.id)}
             >
-              Register Now
-            </button>
-          </div>
-          <img
-            src="/Project Images/both.avif"
-            alt="Both Delivery and Dining"
-            className={css.serviceImage}
-          />
+              <div className={css.textContainer}>
+                <h2>{service.title}</h2>
+                <p>{service.description}</p>
+              </div>
+              <img
+                src={service.imgSrc}
+                alt={service.title}
+                className={css.serviceImage}
+              />
+            </div>
+          ))}
         </div>
 
-        {/* Food Delivery Only */}
-        <div className={css.serviceOption}>
-          <div className={css.textContainer}>
-            <h2>Food Delivery Only</h2>
-            <p>List your restaurant in the delivery section only</p>
-            <button
-              className={css.btn}
-              onClick={() => handleRegisterClick('delivery')}
-            >
-              Register Now
-            </button>
-          </div>
-          <img
-            src="/Project Images/food.avif"
-            alt="Delivery Only"
-            className={css.serviceImage}
-          />
-        </div>
-
-        {/* Dining Only */}
-        <div className={css.serviceOption}>
-          <div className={css.textContainer}>
-            <h2>Dining Only</h2>
-            <p>List your restaurant in the dining section only</p>
-            <button
-              className={css.btn}
-              onClick={() => handleRegisterClick('dining')}
-            >
-              Register Now
-            </button>
-          </div>
-          <img
-            src="/Project Images/dining.avif"
-            alt="Dining Only"
-            className={css.serviceImage}
-          />
-        </div>
+        <button
+          className={css.btn}
+          onClick={handleRegisterClick}
+          disabled={selectedServices.length === 0} // Disable button if no services are selected
+        >
+          Register Now
+        </button>
       </div>
     </div>
   );

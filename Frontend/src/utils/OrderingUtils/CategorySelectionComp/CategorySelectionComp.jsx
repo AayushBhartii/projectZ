@@ -23,7 +23,7 @@ let CategorySelectionComp = ({ imgSrc, imgSrc2, title, color, isActive, setIsAct
             }
         });
 
-        let param = comp === "delivery" ? orderOnlinePage : comp === "dinning" ? diningOutPage : nightLifePage;
+        let param = comp === "delivery" ? orderOnlinePage : comp === "dinning" ? diningOutPage : comp === "kitchen" ? proAndProPlusPage : nightLifePage;
         navigate('/show-case/?page=' + param);;
     }
 

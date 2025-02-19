@@ -122,10 +122,16 @@
     font-weight: 350;
 }
 
+.appBoxes {
+    display: flex; /* Align items in a row */
+    justify-content: flex-start; /* Align images to the left */
+    gap: 1.5rem; /* Add space between images */
+    margin-top: 1rem; /* Add top margin to the images */
+}
+
 .appImg {
     width: 150px;
     height: 40px;
-    margin-right: 1.5rem;
     border-radius: 5px;
     cursor: pointer;
 }
