@@ -10,7 +10,10 @@ export const recentlyviewedPage = 'recently-viewed'
 export const bookmarksPage = 'bookmarks'
 export const blogpostsPage = 'blog-posts'
 export const orderhistoryPage = 'order-history'
+<<<<<<< HEAD
 export const takeawayorderPage = 'takeawayorder';
+=======
+>>>>>>> master
 export const myaddressPage = 'my-address'
 export const favoriteordersPage = 'favorite-orders'
 export const bookingsPage = 'bookings'
