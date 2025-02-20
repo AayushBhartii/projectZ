@@ -14,13 +14,13 @@ const AddRestaurantHeader = () => {
 
   const toggleBanner = toggleMenu ? (
     <div className={css.banner}>
-    <Navbar
-  setToggleMenu={setToggleMenu}
-  toogleMenu={toggleMenu}
-  page="add-restaurant"
-  helpText="Need help? Call +91 97-38-38-38-38"
-  helpTextClass="helpTextLeft" // Add a class to adjust the position
-/>
+      <Navbar
+        setToggleMenu={setToggleMenu}
+        toogleMenu={toggleMenu}
+        page="add-restaurant"
+        helpText="Need help? Call +91 97-38-38-38-38"
+        helpTextClass="helpTextLeft" // Add a class to adjust the position
+      />
 
       <div className={css.bannerInner}>
         <img src={banner} alt="banner" className={css.bannerImg} />

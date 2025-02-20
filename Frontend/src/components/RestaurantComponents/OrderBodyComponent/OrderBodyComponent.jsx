@@ -13,7 +13,7 @@ import ReviewsComponent from './Components/ReviewsComponent/ReviewsComponent';
 const OrderBodyComponent = () => {
   const [pageCompo, setPageComp] = useState(<OverviewFieldComponent />);
   const navigate = useNavigate();
-  const { city, hotel, page } = useParams();
+  const { city, id, page } = useParams();
 
   // Function to determine active class for menu items
   const isActiveClass = (pageName) => {
@@ -28,7 +28,7 @@ const OrderBodyComponent = () => {
   useEffect(() => {
     // Redirect to the default overview page if no specific page is provided or if the page is invalid
     if (!page || !['overview', 'order', 'reviews', 'photos', 'menu', 'bookatable', 'tiffins'].includes(page)) {
-      navigate(`/${city}/${hotel}/overview`, { replace: true });
+      navigate(`/${city}/${id}/overview`, { replace: true });
     } else {
       switch (page) {
         case 'overview':
@@ -72,31 +72,31 @@ const OrderBodyComponent = () => {
       });
     }
 
-  }, [city, hotel, page, navigate]);
+  }, [city, id, page, navigate]);
 
   return (
     <div className={css.outerDiv}>
       <div className={css.innerDiv}>
         <div className={css.menu}>
-          <NavLink to={`/${city}/${hotel}/overview`} className={() => isActiveClass('overview')}>
+          <NavLink to={`/${city}/${id}/overview`} className={() => isActiveClass('overview')}>
             Overview
           </NavLink>
-          <NavLink to={`/${city}/${hotel}/menu`} className={() => isActiveClass('menu')}>
+          <NavLink to={`/${city}/${id}/menu`} className={() => isActiveClass('menu')}>
             Menu
           </NavLink>
-          <NavLink to={`/${city}/${hotel}/order`} className={() => isActiveClass('order')}>
+          <NavLink to={`/${city}/${id}/order`} className={() => isActiveClass('order')}>
             Takeaway
           </NavLink>
-          <NavLink to={`/${city}/${hotel}/tiffins`} className={() => isActiveClass('tiffins')}>
+          <NavLink to={`/${city}/${id}/tiffins`} className={() => isActiveClass('tiffins')}>
             Tiffins
           </NavLink>
-          <NavLink to={`/${city}/${hotel}/photos`} className={() => isActiveClass('photos')}>
+          <NavLink to={`/${city}/${id}/photos`} className={() => isActiveClass('photos')}>
             Photos
           </NavLink>
-          <NavLink to={`/${city}/${hotel}/reviews`} className={() => isActiveClass('reviews')}>
+          <NavLink to={`/${city}/${id}/reviews`} className={() => isActiveClass('reviews')}>
             Reviews
           </NavLink>
-          <NavLink to={`/${city}/${hotel}/bookatable`} className={() => isActiveClass('bookatable')}>
+          <NavLink to={`/${city}/${id}/bookatable`} className={() => isActiveClass('bookatable')}>
             Book a Table
           </NavLink>
         </div>

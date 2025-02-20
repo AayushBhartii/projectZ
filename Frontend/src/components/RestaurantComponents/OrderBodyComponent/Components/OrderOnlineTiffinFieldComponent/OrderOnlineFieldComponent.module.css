@@ -7,7 +7,7 @@
 
 .header {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   flex-direction: column;
 }
 
@@ -20,12 +20,14 @@
 
 .details {
   flex: 1;
+  gap: px;
 }
 
+
 .groupDetails {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
 .title {
@@ -35,28 +37,27 @@
 }
 
 .selectGroup {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 600;
+  padding-bottom: 0px;
 }
 
 .select {
   width: 100%;
-  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  padding: 10px;
 }
 
 .dateGroup {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
 .dateInput {
@@ -74,17 +75,6 @@
   font-size: 16px;
 }
 
-.mealDetails {
-  margin-bottom: 15px;
-  /* max-height: 40vh; */
-  /* border-bottom: 2px solid red; */
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  overflow-y: auto;
-}
-
-
 .flex {
   display: flex;
   align-items: space-between;
@@ -100,10 +90,9 @@
   gap: 4px;
 }
 
-
 input[type="radio"] {
-  all: unset; 
-  width: 15px; 
+  all: unset;
+  width: 15px;
   height: 15px;
   border: 1px solid #ef4354;
   border-radius: 50%;
@@ -135,14 +124,30 @@ input[type="radio"]:checked::after {
   visibility: visible;
 }
 
+.padding {
+  padding: 10px 10px 10px 0px;
+  font-size: large;
+}
+
+.mealDetails1 {
+  display: grid;
+  grid-column: 1/2;
+  gap: 4px;
+}
+
+.mealDetails {
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
 
 .flex2 {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 4px;
+  padding: 10px;
   border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  padding: 0 0 0 10px;
   border-radius: 10px;
 }
 
@@ -156,7 +161,6 @@ input[type="radio"]:checked::after {
 .imageflex {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   gap: 5px;
 }
 
@@ -221,15 +225,13 @@ input[type="radio"]:checked::after {
 }
 
 .mealTypecolor {
-  color: #ef4354;
+  text-align: start;
 }
 
 .totalPrice {
-  margin-bottom: 10px;
-  /* text-align: center; */
-  font-size: 24px;
+  margin-bottom: 5px;
+  font-size: 20px;
   font-weight: bold;
-
 }
 
 .redcolor {
@@ -240,8 +242,8 @@ input[type="radio"]:checked::after {
   display: block;
   margin-left: 30px;
   margin-top: 10px;
-  width: 40%;
-  padding: .75rem;
+  width: 35%;
+  padding: .50rem;
   font-size: 1.125rem;
   font-weight: bold;
   color: #fff;
@@ -252,12 +254,11 @@ input[type="radio"]:checked::after {
 }
 
 .button:hover {
-  background-color: #f15b6a;
+  background-color: #f02132;
 }
 
 .DeliveryTimeButton {
   display: block;
-  /* margin-top: 10px; */
   width: 50%;
   padding: .65rem;
   font-size: 1rem;
@@ -269,14 +270,236 @@ input[type="radio"]:checked::after {
   cursor: pointer;
 }
 
+.calendarContainer {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 50vw;
+  max-height: 50vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+
+.calendarButton {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.calendarButton:hover {
+  background: #f3f4f6;
+  color: #000;
+}
+
+.monthYear {
+  font-weight: 600;
+  font-size: 0.95em;
+  color: #1a1a1a;
+}
+
+.weekDays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.weekDay {
+  padding: 4px;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.85em;
+  transition: all 0.2s;
+  position: relative;
+  font-weight: 500;
+}
+
+.validDay {
+  color: #333;
+}
+
+.validDay:hover {
+  background: #f3f4f6;
+}
+
+.selectedDay {
+  background: #3b82f6;
+  color: white;
+}
+
+.selectedDay:hover {
+  background: #2563eb;
+}
+
+.disabledDay {
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.emptyDay {
+  cursor: default;
+}
+
+.selectedDatesDisplay {
+  /* margin-top: 12px; */
+  border-top: 1px solid #f3f4f6;
+  /* padding-top: 12px; */
+}
+
+.selectedDatesDisplay h4 {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.datesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 30vh;
+  overflow-y: auto;
+}
+
+.datesList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.datesList::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.datesList::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.dateTag {
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8em;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+
+.dateTag:hover {
+  background: #e5e7eb;
+}
+
+.removeDate {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0 2px;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.removeDate:hover {
+  color: #ef4444;
+}
+
+.today {
+  border: 1px solid #3b82f6;
+}
+
+.firstSelected {
+  background: #2563eb;
+  color: white;
+}
+
+.lastSelected {
+  background: #1d4ed8;
+  color: white;
+}
+
+.policyContainer {
+  margin: 15px 0;
+}
+
+.policyLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  color: #333;
+}
+
+.policyCheckbox {
+  width: 12px;
+  height: 12px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  cursor: pointer;
+}
+
+.errorMessage {
+  color: #dc3545;
+  font-size: 14px;
+  margin: 10px 0;
+  padding: 8px;
+  background-color: #fff3f3;
+  border-radius: 4px;
+  border: 1px solid #ffcdd2;
+}
+
+.buttonDisabled {
+  margin-top: 0px;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 @media (min-width: 768px) {
   .header {
     flex-direction: row;
   }
 
-  .dateGroup {
-    flex-direction: row;
-  }
+
 
   .image {
     width: 400px;

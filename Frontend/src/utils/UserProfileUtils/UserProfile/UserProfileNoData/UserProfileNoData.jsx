@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import css from './UserProfileNoData.module.css'
 
-import {reviewPage, photosPage, followersPage, recentlyviewedPage, bookmarksPage, blogpostsPage, orderhistoryPage, myaddressPage, favoriteordersPage, bookingsPage, takeawayorderPage} from '../../../../helpers/constants'
+import {reviewPage, photosPage, followersPage, recentlyviewedPage, bookmarksPage, blogpostsPage, orderhistoryPage, myaddressPage, favoriteordersPage, bookingsPage,} from '../../../../helpers/constants'
 
 import photos from '/icons/nophotos.png'
 import blogpost from '/icons/noblogposts.png'
@@ -35,9 +35,9 @@ const UserProfileNoData = ({hashId}) => {
       case blogpostsPage: 
         setPage(blogpost)
         break;
-      case takeawayorderPage:
-        setPage(takeawayorder)
-        break;
+      // case takeawayorderPage:
+      //   setPage(takeawayorder)
+      //   break;
       case orderhistoryPage: 
         setPage(reservations)
         break;
