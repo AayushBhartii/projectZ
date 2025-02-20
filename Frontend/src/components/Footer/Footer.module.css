@@ -1,0 +1,171 @@
+.footer {
+    width: 100%;
+    height: auto;
+    background-color: #F8F8F8;
+    padding: 2rem 4rem;
+}
+
+.innerFooter {}
+
+.sec1 {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.logoBox {
+    width: 150px;
+    height: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.filterBox {
+    margin-right: 20px;
+    padding: 10px;
+    border: 1px solid rgb(181, 181, 181);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.arrow {
+    margin-left: 5px;
+}
+
+.sec2 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.box {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.boxTtl {
+    margin: 10px 0px;
+    letter-spacing: 2px;
+}
+
+.boxOpt {
+    margin: 5px 0px;
+    text-decoration: none;
+    color: rgb(105, 105, 105);
+    font-size: 0.9rem;
+}
+
+.socialImgAnchore {
+    text-decoration: none;
+}
+
+.socialImg {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.app {
+    width: 146px;
+    height: 38px;
+    margin: 5px 0;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.appImg {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.breakLine {
+    margin: 20px 0;
+    border-top: 1px solid rgb(207, 207, 207);
+}
+
+.sec3 {
+    color: rgb(79, 79, 79);
+    text-align: justify;
+    font-size: 0.9rem;
+}
+
+/* Social Links Flex Direction Update */
+.socialImgs {
+    display: flex;
+    flex-direction: row; /* Stack social links in column on smaller screens */
+    
+    justify-content: space-between;
+    gap: 0.5px; /* Reduces the space between items */
+}
+
+@media all and (max-width: 800px) {
+
+    .sec1,
+    .sec2 {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        width: 40%;
+    }
+    .socialImgs {
+        display: flex;
+        flex-direction: row;
+        
+              align-items: center;     
+        
+        justify-content: center;
+        gap: 1px; 
+    }
+   
+}
+
+@media all and (max-width: 550px) {
+
+    .footer {
+        padding: 1rem 2rem;
+    }
+
+}
+
+@media all and (max-width: 350px) {
+
+    .footer {
+        padding: 1rem 1rem;
+        gap: 2px;
+    }
+
+    .filters {
+        margin: 2rem 0 0 0;
+       
+    }
+}

@@ -1,0 +1,110 @@
+.outerDiv {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .innerDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  
+  .left {
+    width: 70%;
+  }
+  
+  .right {
+    width: 30%;
+  }
+  
+  .dropDowns {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .re {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  @media all and (max-width: 780px) {
+    .innerDiv {
+      flex-wrap: wrap;
+    }
+  
+    .left,
+    .right {
+      width: 100%;
+    }
+  
+    .right {
+      margin: 10px 0;
+    }
+  }
+  .reviewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submitButton {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: #45a049;
+  }
+  .commentSection {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .commentInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 8px;
+  }
+  
+  .commentIcon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .commentsList {
+    margin-top: 10px;
+  }
+  
+  .commentItem {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    padding: 5px;
+    background: #f9f9f9;
+    border-radius: 4px;
+  }
+  
+  .timestamp {
+    font-size: 12px;
+    color: #888;
+  }
+  

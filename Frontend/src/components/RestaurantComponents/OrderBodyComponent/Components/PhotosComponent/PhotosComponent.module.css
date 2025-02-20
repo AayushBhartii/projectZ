@@ -1,0 +1,89 @@
+.outerDiv {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.ttl {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-title-text);
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.btns {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.photoCards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.imgCard {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Active button styles */
+.activeButton {
+  border: 2px solid var(--color-primary); /* Highlight border */
+  background-color: var(--color-primary-light); /* Highlight background */
+  color: var(--color-primary); /* Highlight text color */
+}
+
+/* Base button styles */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* RedButton specific styles */
+.redButton {
+  background-color: var(--color-red);
+  color: white;
+  border: none;
+}
+
+.redButton:hover {
+  background-color: var(--color-red-dark);
+}
+
+/* WhiteButton specific styles */
+.whiteButton {
+  background-color: white;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.whiteButton:hover {
+  background-color: var(--color-background-light);
+}
+
+/* Media queries for responsive design */
+@media all and (max-width: 480px) {
+  .ttl {
+    font-size: 1.2rem;
+  }
+
+  .photoCards {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .imgCard {
+    height: 150px;
+  }
+}

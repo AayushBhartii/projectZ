@@ -1,0 +1,200 @@
+.container {
+  padding: 2rem; /* Increase padding */
+  max-width: 1100px; /* Increase container width */
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow */
+}
+
+.heading {
+  font-size: 1.5rem; /* Increase font size */
+  font-weight: 600;
+  margin-bottom: 1.5rem; /* Add more spacing below heading */
+  text-align: center;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; /* Increase spacing between elements */
+  margin-bottom: 2rem; /* Add more spacing below the grid */
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem; /* Adjust padding */
+  font-size: 1rem; /* Increase font size */
+  border-radius: 6px; /* Slightly larger border radius */
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  width: 100%; /* Ensure button takes full width */
+}
+
+.dropdownButton:hover {
+  border-color: #3b82f6; /* Highlight border on hover */
+}
+
+.dropdownOptions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 0.5rem; /* Add spacing between button and dropdown */
+}
+
+.dropdownOption {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdownOption:hover {
+  background-color: #f0f0f0; /* Highlight option on hover */
+}
+
+.subheading {
+  font-size: 1.25rem; /* Increase font size */
+  font-weight: 600;
+  margin-bottom: 1rem; /* Add more spacing */
+}
+
+.slotsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Reduce to 3 slots per row */
+  gap: 1rem; /* Increase gap between slots */
+}
+
+.slotButton {
+  border: 1px solid #ddd;
+  padding: 1rem; /* Increase padding for larger buttons */
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1rem; /* Increase font size */
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.2s, color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slotButton:hover {
+  /* Highlight slot on hover */
+}
+
+.selectedSlot {
+  border: 2px solid var(--color-redish1); /* Highlight with red border */
+  background-color: rgba(var(--color-redish1-rgb), 0.1); /* Light background */
+  color: black;
+}
+
+
+.offersText {
+  font-size: 0.85rem; /* Slightly larger text */
+  color: black;
+  margin-top: 0.5rem; /* Add more spacing */
+}
+
+.proceedButton {
+  margin-top: 2rem; /* Increase spacing above button */
+  width: 100%;
+  padding: 1rem; /* Increase padding */
+  font-size: 1.25rem; /* Larger font size */
+  border-radius: 8px; /* Larger border radius */
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.proceedEnabled {
+  background-color: var(--color-redish1); /* Blue background for enabled state */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.proceedEnabled:hover {
+  background-color: var(--color-redish2); /* Darker blue on hover */
+}
+
+.proceedDisabled {
+  background-color: #ddd; /* Gray background for disabled state */
+  color: #999;
+  border: none;
+  cursor: not-allowed;
+}
+
+.offerCard {
+  margin-top: 2rem; /* Add spacing above offer card */
+}
+
+.offerCardContent {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px; /* Consistent padding */
+  text-align: center;
+  border: 1px solid #ddd;
+  transition: transform 0.3s ease-in-out;
+}
+
+.offerCardContent h3 {
+  font-size: 1.25rem; /* Increase font size */
+  color: #333;
+  margin-bottom: 1rem; /* Add more spacing below heading */
+  font-weight: bold;
+}
+
+.offerCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between cards */
+  justify-content: center;
+  margin-top: 1rem; /* Add spacing above cards */
+}
+
+.offerCardSingle {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem; /* Consistent padding */
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  min-width: 150px; /* Minimum width for cards */
+  flex: 1 1 calc(33.333% - 1rem); /* Flexible width for cards */
+}
+
+.offerCardSingle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+  margin-right: 10px; /* Add space between the icon and the text */
+  font-size: 18px; /* Adjust the icon size if needed */
+  display: inline-block; /* Ensures the icon aligns with the text */
+  vertical-align: middle; /* Vertically aligns the icon with the text */
+}
+.selectedOffer {
+  background: rgb(80, 179, 80);
+  color: white;
+  font-weight: bold;
+  border: 1px solid rgb(22, 125, 22);
+}

@@ -1,0 +1,70 @@
+.card {
+    min-width: 130px;  /* Increased width for rectangular shape */
+    max-width: 285px;
+    max-height: 13rem;  /* Increased height for better proportions */
+    border: var(--brd1);
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 4px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.imgBox {
+    width: 100%;
+    height: 75%;  /* Increased image height to occupy more space */
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+.txtBx {
+    width: 100%;
+    height: 25%;  /* Reduced text area to balance image size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.txt {
+    color: var(--color-title-text);
+    font-size: 1.2rem;
+    font-weight: 450;
+    text-align: center;
+}
+
+@media all and (max-width: 768px) {
+    .card {
+        min-width: 220px;
+        max-width: 280px;
+        max-height: 12rem;
+    }
+
+    .txt {
+        font-size: 1rem;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .card {
+        min-width: 200px;
+        max-width: 240px;
+        max-height: 12rem;
+    }
+
+    .txt {
+        font-size: 0.9rem;
+    }
+}

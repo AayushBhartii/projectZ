@@ -1,0 +1,151 @@
+.outerDiv {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .innerDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .leftBox {
+    flex: 2;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 1rem;
+  }
+  
+  .leftBox::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .rightBox {
+    flex: 1;
+    height: 100%;
+  }
+  
+  .ttl {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-title-text);
+    margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: white; /* Optional: you can add this to avoid any overlap or transparency issues */
+    z-index: 10; /* Optional: ensures the sticky heading appears above other content */
+    padding: 1rem 0; /* Adds some padding to make it stand out */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow to the sticky header for better visibility */
+  }
+  
+  .menuSec {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .subTtl {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-title-text);
+    margin-bottom: 0.5rem;
+  }
+  
+  .secTxt, .secTxt1 {
+    color: var(--color-p5-text);
+    font-weight: 400;
+    margin: 0.5rem 0;
+  }
+  
+  .secTxt {
+    font-size: 1rem;
+  }
+  
+  .secTxt1 {
+    font-size: 0.8rem;
+    margin: 0.3rem 0;
+    font-weight: 300;
+  }
+  
+  .toolTipBox {
+    width: 100%;
+  }
+  
+  .secTxtToolTip {
+    width: max-content;
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin: 0.3rem 0;
+    color: var(--color-p5-text);
+    cursor: pointer;
+    border-bottom: 1px dashed var(--color-p1-text);
+  }
+  
+  .menuLink {
+    text-decoration: none;
+    color: var(--color-redish1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .rightArrowIcon {
+    width: 10px;
+    height: 10px;
+    filter: invert(21%) sepia(60%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(100%);
+  }
+  
+  .menuSecBdy, .secBdy {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .sec {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+  
+  .labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .sec2 {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+  
+  .ulList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .list {
+    list-style-image: url('/icons/tick-green.png');
+    padding-left: 1.5rem;
+  }
+  
+  @media (max-width: 780px) {
+    .innerDiv {
+      flex-direction: column;
+    }
+  
+    .leftBox, .rightBox {
+      width: 100%;
+      padding-right: 0;
+    }
+  
+    .menuSecBdy, .secBdy, .ulList {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
+  

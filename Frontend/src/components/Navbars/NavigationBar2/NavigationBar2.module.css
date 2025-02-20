@@ -1,0 +1,289 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  z-index: 5;
+  color: var(--color-white);
+  border-bottom: var(--brd2);
+  position: relative;
+}
+
+.navbarInner {
+  width: 85%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+}
+
+.menuBar {
+  width: 20px;
+  height: 20px;
+  display: none;
+  margin: 20px;
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+}
+
+.leftSide,
+.rightSide {
+  display: flex;
+  align-items: center;
+}
+
+.leftSide {
+  cursor: pointer;
+  margin-left: 9rem;
+}
+
+.appTxt {
+  color: var(--color-title-text);
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.searchBar {
+  width: 50%;
+  margin-left: -55px;
+}
+
+.menuItem {
+  color: var(--color-p2-text);
+  text-decoration: none;
+  margin-right: 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePic {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.profileName {
+  margin: 0px 10px;
+}
+
+.menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 200px;
+  border-radius: 10px;
+  background-color: var(--color-white);
+  display: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.profile:hover .menu {
+  display: block;
+}
+
+.menuItemLink {
+  padding: 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.menuItemLinkTxt:first-child > .menuItemLink {
+  border-radius: 10px 10px 0 0;
+}
+
+.menuItemLinkTxt:last-child > .menuItemLink {
+  border-radius: 0 0 10px 10px;
+}
+
+.menuItemLink:hover {
+  background-color: var(--bg-ash);
+}
+
+.menuItemLinkTxt {
+  width: 100%;
+  color: var(--color-title-text);
+  font-weight: 350;
+  text-decoration: none;
+}
+
+/* Large Desktop */
+@media screen and (min-width: 1441px) {
+  .navbarInner {
+    width: 75%;
+    max-width: 1600px;
+  }
+
+  .searchBar {
+    width: 45%;
+  }
+}
+
+/* Desktop */
+@media screen and (max-width: 1440px) {
+  .navbarInner {
+    width: 85%;
+  }
+
+  .leftSide {
+    margin-left: 6rem;
+  }
+
+  .searchBar {
+    width: 45%;
+  }
+}
+
+/* Small Desktop/Large Tablet */
+@media screen and (max-width: 1200px) {
+  .navbarInner {
+    width: 90%;
+  }
+
+  .leftSide {
+    margin-left: 4rem;
+  }
+
+  .searchBar {
+    width: 40%;
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .navbarInner {
+    width: 95%;
+  }
+  
+  .leftSide {
+    margin-left: 2rem;
+  }
+
+  .searchBar {
+    width: 35%;
+    margin-left: -30px;
+  }
+
+  .appTxt {
+    font-size: 1.8rem;
+  }
+}
+
+/* Large Mobile */
+@media screen and (max-width: 768px) {
+  .navbarInner {
+    width: 100%;
+    padding: 0 1rem;
+    justify-content: space-between;
+  }
+
+  .menuBar {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .leftSide {
+    margin-left: 3rem;
+  }
+
+  .searchBar {
+    width: 40%;
+    margin-left: -20px;
+  }
+
+  .appTxt {
+    font-size: 1.6rem;
+  }
+
+  .profileName {
+    display: none;
+  }
+
+  .menuItem {
+    font-size: 1rem;
+  }
+}
+
+/* Medium Mobile */
+@media screen and (max-width: 600px) {
+  .leftSide {
+    margin-left: 2.5rem;
+  }
+
+  .searchBar {
+    width: 35%;
+    margin-left: -15px;
+  }
+
+  .appTxt {
+    font-size: 1.4rem;
+  }
+
+  .profilePic {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+  .navbarInner {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .leftSide {
+    margin-left: 2rem;
+  }
+
+  .searchBar {
+    width: 30%;
+    margin-left: -10px;
+  }
+
+  .rightSide {
+    margin-left: auto;
+    padding-right: 10px;
+  }
+
+  .menuItem {
+    margin-right: 0.5rem;
+  }
+}
+
+/* Extra Small Mobile */
+@media screen and (max-width: 360px) {
+  .leftSide {
+    margin-left: 1.8rem;
+  }
+
+  .appTxt {
+    font-size: 1.2rem;
+  }
+
+  .searchBar {
+    width: 28%;
+    margin-left: -5px;
+  }
+
+  .menuItem {
+    font-size: 0.9rem;
+  }
+
+  .profilePic {
+    width: 28px;
+    height: 28px;
+  }
+}
