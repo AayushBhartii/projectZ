@@ -7,11 +7,7 @@
 
 .header {
   display: flex;
-<<<<<<< HEAD
-  gap: 20px;
-=======
   gap: 50px;
->>>>>>> master
   flex-direction: column;
 }
 
@@ -24,22 +20,14 @@
 
 .details {
   flex: 1;
-<<<<<<< HEAD
-}
-
-.groupDetails {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-=======
   gap: px;
 }
+
 
 .groupDetails {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
->>>>>>> master
 }
 
 .title {
@@ -49,46 +37,27 @@
 }
 
 .selectGroup {
-<<<<<<< HEAD
-  margin-bottom: 15px;
-=======
   margin-bottom: 5px;
->>>>>>> master
 }
 
 .label {
   display: block;
-<<<<<<< HEAD
-  margin-bottom: 5px;
-  font-weight: bold;
-=======
   font-weight: 600;
   padding-bottom: 0px;
->>>>>>> master
 }
 
 .select {
   width: 100%;
-<<<<<<< HEAD
-  padding: 10px;
-=======
->>>>>>> master
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  padding: 10px;
 }
 
 .dateGroup {
-<<<<<<< HEAD
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-  flex-direction: column;
-=======
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
->>>>>>> master
 }
 
 .dateInput {
@@ -106,20 +75,6 @@
   font-size: 16px;
 }
 
-<<<<<<< HEAD
-.mealDetails {
-  margin-bottom: 15px;
-  /* max-height: 40vh; */
-  /* border-bottom: 2px solid red; */
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  overflow-y: auto;
-}
-
-
-=======
->>>>>>> master
 .flex {
   display: flex;
   align-items: space-between;
@@ -135,16 +90,9 @@
   gap: 4px;
 }
 
-<<<<<<< HEAD
-
-input[type="radio"] {
-  all: unset; 
-  width: 15px; 
-=======
 input[type="radio"] {
   all: unset;
   width: 15px;
->>>>>>> master
   height: 15px;
   border: 1px solid #ef4354;
   border-radius: 50%;
@@ -176,16 +124,6 @@ input[type="radio"]:checked::after {
   visibility: visible;
 }
 
-<<<<<<< HEAD
-
-.flex2 {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  padding: 0 0 0 10px;
-=======
 .padding {
   padding: 10px 10px 10px 0px;
   font-size: large;
@@ -210,7 +148,6 @@ input[type="radio"]:checked::after {
   gap: 4px;
   padding: 10px;
   border: 1px solid #ccc;
->>>>>>> master
   border-radius: 10px;
 }
 
@@ -224,10 +161,6 @@ input[type="radio"]:checked::after {
 .imageflex {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  /* align-items: center; */
-=======
->>>>>>> master
   gap: 5px;
 }
 
@@ -292,17 +225,6 @@ input[type="radio"]:checked::after {
 }
 
 .mealTypecolor {
-<<<<<<< HEAD
-  color: #ef4354;
-}
-
-.totalPrice {
-  margin-bottom: 10px;
-  /* text-align: center; */
-  font-size: 24px;
-  font-weight: bold;
-
-=======
   text-align: start;
 }
 
@@ -310,7 +232,6 @@ input[type="radio"]:checked::after {
   margin-bottom: 5px;
   font-size: 20px;
   font-weight: bold;
->>>>>>> master
 }
 
 .redcolor {
@@ -321,13 +242,8 @@ input[type="radio"]:checked::after {
   display: block;
   margin-left: 30px;
   margin-top: 10px;
-<<<<<<< HEAD
-  width: 40%;
-  padding: .75rem;
-=======
   width: 35%;
   padding: .50rem;
->>>>>>> master
   font-size: 1.125rem;
   font-weight: bold;
   color: #fff;
@@ -338,19 +254,11 @@ input[type="radio"]:checked::after {
 }
 
 .button:hover {
-<<<<<<< HEAD
-  background-color: #f15b6a;
-=======
   background-color: #f02132;
->>>>>>> master
 }
 
 .DeliveryTimeButton {
   display: block;
-<<<<<<< HEAD
-  /* margin-top: 10px; */
-=======
->>>>>>> master
   width: 50%;
   padding: .65rem;
   font-size: 1rem;
@@ -362,8 +270,6 @@ input[type="radio"]:checked::after {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-=======
 .calendarContainer {
   background: white;
   padding: 12px;
@@ -588,19 +494,12 @@ input[type="radio"]:checked::after {
   cursor: not-allowed;
 }
 
->>>>>>> master
 @media (min-width: 768px) {
   .header {
     flex-direction: row;
   }
 
-<<<<<<< HEAD
-  .dateGroup {
-    flex-direction: row;
-  }
-=======
 
->>>>>>> master
 
   .image {
     width: 400px;
