@@ -47,57 +47,66 @@ import { CheckoutProvider } from "./helpers/CheckoutProvider";
 import OrderHistory from "./components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineTiffinFieldComponent/OrderHistory";
 import OrderNotificationBar from "./components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineTiffinFieldComponent/OrderNotificationComponet";
 import LiveLocation from "./components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineTiffinFieldComponent/Livelocation";
+import AuthProvider from "./context";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <CheckoutProvider>
-    <BrowserRouter>
-      <OrderNotificationBar />
-      <Routes>
-        <Route path="/Live" element={<LiveLocation />} />
-        <Route index element={<App />} />
-        <Route path="/" element={<App />} />
-        <Route path="/add-restaurant" element={<AddRestaurant />} />
-        <Route path="/RestaurantRegistration" element={<RestaurantRegistration />} />
-        <Route path="/collections" element={<CollectionPage />} />
-        <Route path="/whoweare" element={<WhoWeAre />} />
-        <Route path="/menucarousel" element={<MenuCarousel />} />
-        <Route path="/reportfraud" element={<ReportFraud />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/workwithus" element={<WorkWithUs />} />
-        <Route path="/claim-restaurant" element={<ClaimRestaurant />} />
-        <Route path="/dining" element={<Dining />} />
-        <Route path="/fooddelievetydining" element={<Fooddelieverydining />} />
-        <Route path="/show-case" element={<ShowCase />} />
-        <Route path="/user/:userId" element={<User />} />
-        <Route path="/user/:userId/:hashId" element={<User />} />
-        <Route path="/user/:userId/notifications" element={<SkipedPage />} />
-        <Route path="/investors-relations" element={<InvestorRelations />} />
-        <Route path="/user/:userId/network" element={<SkipedPage />} />
-        <Route path="/user/:userId/find-friends" element={<SkipedPage />} />
-        <Route path="/user/:userId/settings" element={<UserSettingsPage />} />
-        <Route path="/get-the-app" element={<GetTheApp />} />
-        <Route path="/:city/:id" element={<RestaurantPage />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/security" element={<Security />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/checkout" element={<TiffinCheckoutPage />} />
-        <Route path="/:city/:id/:page" element={<RestaurantPage />} />
-        <Route path="/History" element={<OrderHistory />} />
-        <Route path="/test" element={<TestPage />} />
-        <Route path="*" element={<ErrorPage />} />
+  <AuthProvider>
+    <CheckoutProvider>
+      <BrowserRouter>
+        <OrderNotificationBar />
+        <Routes>
+          <Route path="/Live" element={<LiveLocation />} />
+          <Route index element={<App />} />
+          <Route path="/" element={<App />} />
+          <Route path="/add-restaurant" element={<AddRestaurant />} />
+          <Route
+            path="/RestaurantRegistration"
+            element={<RestaurantRegistration />}
+          />
+          <Route path="/collections" element={<CollectionPage />} />
+          <Route path="/whoweare" element={<WhoWeAre />} />
+          <Route path="/menucarousel" element={<MenuCarousel />} />
+          <Route path="/reportfraud" element={<ReportFraud />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/workwithus" element={<WorkWithUs />} />
+          <Route path="/claim-restaurant" element={<ClaimRestaurant />} />
+          <Route path="/dining" element={<Dining />} />
+          <Route
+            path="/fooddelievetydining"
+            element={<Fooddelieverydining />}
+          />
+          <Route path="/show-case" element={<ShowCase />} />
+          <Route path="/user/:userId" element={<User />} />
+          <Route path="/user/:userId/:hashId" element={<User />} />
+          <Route path="/user/:userId/notifications" element={<SkipedPage />} />
+          <Route path="/investors-relations" element={<InvestorRelations />} />
+          <Route path="/user/:userId/network" element={<SkipedPage />} />
+          <Route path="/user/:userId/find-friends" element={<SkipedPage />} />
+          <Route path="/user/:userId/settings" element={<UserSettingsPage />} />
+          <Route path="/get-the-app" element={<GetTheApp />} />
+          <Route path="/:city/:id" element={<RestaurantPage />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/security" element={<Security />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/checkout" element={<TiffinCheckoutPage />} />
+          <Route path="/:city/:id/:page" element={<RestaurantPage />} />
+          <Route path="/History" element={<OrderHistory />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="*" element={<ErrorPage />} />
 
-        <Route path="/add-to-cart" element={<AddToCart />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/bookingdetails" element={<BookingDetails />} />
+          <Route path="/add-to-cart" element={<AddToCart />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/bookingdetails" element={<BookingDetails />} />
 
-        {/* Blog Paths */}
-        <Route path="/blog/allcategories" element={<AllCategories />} />
-        <Route path="/blog/community" element={<Community />} />
-        <Route path="/blog/company" element={<Company />} />
-        <Route path="/blog/culture" element={<Culture />} />
-        <Route path="/blog/technology" element={<Technology />} />
-      </Routes>
-    </BrowserRouter>
-  </CheckoutProvider>
+          {/* Blog Paths */}
+          <Route path="/blog/allcategories" element={<AllCategories />} />
+          <Route path="/blog/community" element={<Community />} />
+          <Route path="/blog/company" element={<Company />} />
+          <Route path="/blog/culture" element={<Culture />} />
+          <Route path="/blog/technology" element={<Technology />} />
+        </Routes>
+      </BrowserRouter>
+    </CheckoutProvider>
+  </AuthProvider>
 );
