@@ -20,7 +20,7 @@ import {
   nightLifePage,
 } from "./helpers/constants";
 
-const text = "my text";
+const text = "update text";
 
 function App() {
   return (
