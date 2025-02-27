@@ -6,6 +6,7 @@ import { useCheckout } from '../../../../../helpers/CheckoutProvider';
 import moment from "moment"
 import axios from 'axios';
 import OfferPopup from './Offer_Popup';
+import NavigationBar from '../../../../Navbars/NavigationBar2/NavigationBar2';
 import { useNavigate } from 'react-router-dom';
 import { detectLocation } from '../../../../HomeComponents/PopularPlaces/CurrentLocation/detectLocation';
 
@@ -25,7 +26,8 @@ const TiffinCheckoutPage = () => {
     Offers,
     plan,
     TiffinName,
-    Address
+    Address,
+    resetCheckoutData
   } = useCheckout();
 
   const navigate = useNavigate();
@@ -46,7 +48,6 @@ const TiffinCheckoutPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [recentLocations, setRecentLocations] = useState([]);
   const [currentLocation, setCurrentLocation] = useState('');
-
 
   const filterMealType = mealType.filter(mealType =>
     selecetedMealType === mealType.mealTypeId
@@ -112,7 +113,6 @@ const TiffinCheckoutPage = () => {
     return true;
   };
 
-
   const validateUserDetails = () => {
     const errors = {};
     let isValid = true;
@@ -128,19 +128,6 @@ const TiffinCheckoutPage = () => {
       errors.name = 'Name should only contain letters and spaces';
       isValid = false;
     }
-
-
-    // Mobile validation
-    // if (!userDetails.mobile.countryCode) {
-    //   errors.mobile.countryCode = 'Country code is required';
-    //   isValid = false;
-    // }
-
-    // if (!userDetails.mobile.number) {
-    //   errors.mobile.number = 'Phone number is required';
-    //   isValid = false;
-    // }
-
 
     // Address validation
     if (addressType === 'specific' && !userDetails.address.trim()) {
@@ -167,7 +154,7 @@ const TiffinCheckoutPage = () => {
       Plan
     )
 
-    console.log("Plan is:", pan);
+    // console.log("Plan is:", pan);
 
     if (!offer) {
       alert("Invalid offer code");
@@ -220,6 +207,9 @@ const TiffinCheckoutPage = () => {
     alert(`Offer applied successfully! You saved ₹${discountAmount}`);
   };
 
+  // console.log("Applied offer", activeOffer);
+  // console.log("Apply discount", appliedDiscount);
+
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString('en-GB'); // 'en-GB' uses DD/MM/YYYY format
   };
@@ -237,47 +227,42 @@ const TiffinCheckoutPage = () => {
 
   const planDates = getPlanDates(planType, startDate, endDate, selectedDates);
 
-  // const storedCheckoutData = JSON.parse(localStorage.getItem('CheckoutData')) || {};
-  // const PlanDates = storedCheckoutData.planDates || planDates;
-
-
   const mealTypeName = filterMealType.map(meal => meal.label)
 
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: mealTypeName,
-      price: totalPrice,
-      quantity: quantity,
-      planType: planType,
-      plan: selectedPlan,
-      TiffinName: TiffinName,
-      ...planDates
-    },
-  ]);
+  useEffect(() => {
+    if (TiffinName && Address) {
+      localStorage.setItem("Tiffin_Name", TiffinName);
+      localStorage.setItem("Tiffin_Address", Address);
+    }
+  }, [TiffinName, Address])
 
-  // const [cartItems, setCartItems] = useState(() => {
-  //   const storedData = localStorage.getItem('CheckoutData');
-  //   if (storedData) {
-  //     try {
-  //       return [JSON.parse(storedData)];
-  //     } catch (err) {
-  //       console.error('Error parsing CheckoutData from localStorage:', err);
-  //     }
-  //   }
-  //   // Fall back to using context values if nothing is in localStorage.
-  //   return [
-  //     {
-  //       id: 1,
-  //       name: mealTypeName,
-  //       price: totalPrice,
-  //       quantity: quantity,
-  //       planType: planType,
-  //       plan: selectedPlan,
-  //       ...planDates,
-  //     },
-  //   ];
-  // });
+
+  const tiffin_Name = localStorage.getItem("Tiffin_Name");
+  const tiffin_Address = localStorage.getItem("Tiffin_Address");
+
+  const [cartItems, setCartItems] = useState(() => {
+    const storedData = localStorage.getItem("CheckoutData");
+    if (storedData) {
+      try {
+        const parsedData = JSON.parse(storedData);
+        return Array.isArray(parsedData) ? parsedData : [parsedData];
+      } catch (err) {
+        console.error("Error parsing CheckoutData from localStorage:", err);
+      }
+    }
+
+    return [
+      {
+        id: 1,
+        name: mealTypeName,
+        price: totalPrice,
+        quantity: quantity,
+        planType: planType,
+        plan: selectedPlan,
+        ...planDates,
+      },
+    ];
+  });
 
   const [userDetails, setUserDetails] = useState({
     name: '',
@@ -292,24 +277,32 @@ const TiffinCheckoutPage = () => {
   });
   const [loadingLocation, setLoadingLocation] = useState(false);
 
-  // useEffect(() => {
-  //   if (cartItems.length > 0) {
-  //     const dataToStore = JSON.stringify(
-  //       {
-  //         ...cartItems[0],
-  //         planDates,
-  //       },
-  //       (key, value) => (value === undefined ? null : value)
-  //     );
+  useEffect(() => {
+    if (
+      mealTypeName &&
+      selectedPlan &&
+      quantity > 0 &&
+      planDates
+    ) {
+      setCartItems([
+        {
+          id: 1,
+          name: mealTypeName,
+          price: totalPrice,
+          quantity: quantity,
+          planType: planType,
+          plan: selectedPlan,
+          ...planDates,
+        },
+      ]);
+    }
+  }, [selectedPlan, selecetedMealType, totalPrice, quantity, planType, startDate, endDate, mealType, plan]);
 
-  //     localStorage.setItem('CheckoutData', dataToStore);
-  //   }
-  //   // const UserData = JSON.stringify([
-  //   //   ...userDetails
-  //   // ])
-  //   // localStorage.setItem('UserDetails',userDetails)
-  // }, [cartItems, planDates, selectedPlan, selecetedMealType, totalPrice, quantity, planType,]);
-
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      localStorage.setItem("CheckoutData", JSON.stringify(cartItems));
+    }
+  }, [cartItems]);
 
   const [addressType, setAddressType] = useState('current');
   const [showOtherCharges, setShowOtherCharges] = useState(false);
@@ -352,25 +345,23 @@ const TiffinCheckoutPage = () => {
   const { totalOtherCharges, breakdown } = calculateOtherCharges();
 
   const subtotal = calculateSubtotal();
-  // const discount = appliedDiscount;
+
   const finalTotal = calculateSubtotal() - appliedDiscount + deliveryCharge + totalOtherCharges;
   const formattedFinalTotal = Math.round(finalTotal);
-  // console.log(formattedFinalTotal);
 
   const handleInputChange = (e) => {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
   };
 
-  // // Function to handle detecting and saving the location
   const handleDetectLocation = () => {
     detectLocation((location) => {
       setCurrentLocation(location);
       setUserDetails((prev) => ({
         ...prev,
-        address: location, // Update user address with detected location
+        address: location,
       }));
       if (!recentLocations.includes(location)) {
-        setRecentLocations((prev) => [location, ...prev].slice(0, 5)); // Limit to 5 recent locations
+        setRecentLocations((prev) => [location, ...prev].slice(0, 5));
       }
     });
   };
@@ -380,7 +371,7 @@ const TiffinCheckoutPage = () => {
     const updatedAddress = e.target.value;
     setUserDetails((prev) => ({
       ...prev,
-      address: updatedAddress, // Store user-entered address
+      address: updatedAddress,
     }));
     validateAddress(updatedAddress);
   };
@@ -391,7 +382,6 @@ const TiffinCheckoutPage = () => {
       address: address.length < 10 ? "Please enter a complete address (min 10 characters)" : "",
     }));
   };
-
 
   const initializeSubStatus = (order) => {
     const subStatus = [];
@@ -431,20 +421,24 @@ const TiffinCheckoutPage = () => {
     return subStatus;
   };
 
-
   const createCheckoutData = [
     {
       customer: userDetails.name,
-      tiffinName: TiffinName,
+      tiffinName: tiffin_Name,
       phone: {
         countryCode: userDetails.mobile.countryCode,
         number: userDetails.mobile.number,
-        fullNumber: userDetails.mobile.countryCode + userDetails.mobile.number // Format the fullNumber
+        fullNumber: userDetails.mobile.countryCode + userDetails.mobile.number
       },
       address: userDetails.address,
-      tiffinAddress: Address,
+      tiffinAddress: tiffin_Address,
       email: "gamiyash15@gmail.com",
       total: `${formattedFinalTotal}`,
+      appliedOffer: activeOffer,
+      appliedDiscount: appliedDiscount,
+      appliedCharges: Charges,
+      appliedTaxes: Taxes,
+      subTotal: subtotal,
       status: "New Order",
       time: new Date(),
       startDate: cartItems[0].planType === "flexi-dates"
@@ -477,10 +471,11 @@ const TiffinCheckoutPage = () => {
   const updatedOrder = createCheckoutData.map(order => {
     return {
       ...order,
-      subStatus: initializeSubStatus(order),  // Generate subStatus for each order
+      subStatus: initializeSubStatus(order),
     };
   });
-  console.log("updatedOrdesr:", updatedOrder)
+  // console.log("updatedOrdesr:", updatedOrder);
+  console.log("Active offer:", activeOffer)
 
   const submitOrder = async () => {
     if (isSubmitting) return;
@@ -508,9 +503,13 @@ const TiffinCheckoutPage = () => {
     try {
       const orderData = updatedOrder;
       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/saveOrders`, orderData);
-      console.log("SERVER RESPONSE:", response.data);
+      // console.log("SERVER RESPONSE:", response.data);
       alert("Your Order Placed Successfully");
-      // localStorage.removeItem('CheckoutData');
+      setCartItems([]);
+      localStorage.removeItem('CheckoutData');
+      localStorage.removeItem('Tiffin_Name');
+      localStorage.removeItem('Tiffin_Address');
+      resetCheckoutData();
       navigate("/History");
     } catch (error) {
       console.error('Error submitting order:', error.response?.data || error.message);
@@ -519,19 +518,14 @@ const TiffinCheckoutPage = () => {
       setIsSubmitting(false);
     }
   };
-  console.log("userDetails.mobile:", userDetails.mobile);
-  console.log("validationErrors:", validationErrors);
+  // console.log("userDetails.mobile:", userDetails.mobile);
+  // console.log("validationErrors:", validationErrors);
   // console.log("Checkout Data:", updatedOrder)
 
   return (
     <>
       <div className='bg-[#f8f8f8] w-full'>
-        <div className='bg-white rounded-md w-[90vw]  mx-auto'>
-          <div className='flex justify-between p-4'>
-            <div><span className='font-bold'>TiffinName:- </span>{TiffinName}</div>
-            <div><span className='font-bold'>Address:-</span>{Address}</div>
-          </div>
-        </div>
+        <div><NavigationBar /></div>
         <div>
           {showOfferPopup && (
             <OfferPopup
@@ -544,7 +538,7 @@ const TiffinCheckoutPage = () => {
             />
           )}
         </div>
-        <div className="w-[90vw] md:flex-row flex flex-col mx-auto mt-5 gap-10">
+        <div className="w-[80vw] md:flex-row flex flex-col mx-auto mt-2 gap-5">
           <div className="md:w-1/2 w-full bg-white shadow-md rounded-md p-5">
             <h2>Delivery Details</h2>
             <div className="user-form">
@@ -607,7 +601,14 @@ const TiffinCheckoutPage = () => {
           </div>
 
           <div className="md:w-1/2 w-full bg-white shadow-md rounded-md p-5">
-            <h2>Order Summary</h2>
+            <div className='flex items-center gap-2'>
+              <div><img width={45} src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_100,h_100,c_fill/2b4f62d606d1b2bfba9ba9e5386fabb7" alt="" /></div>
+              <div className='flex flex-col justify-start items-start mb-2'>
+                <div className='font-bold'>{tiffin_Name}</div>
+                <div>{tiffin_Address}</div>
+              </div>
+            </div>
+            {/* <h2>Order Summary</h2> */}
             {validationErrors.billing && (
               <div className="billing-error-message">
                 {validationErrors.billing}

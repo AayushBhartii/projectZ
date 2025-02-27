@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import mobileHand from "/icons/smartphone.png";
 import menuBar from "/icons/menu.png";
@@ -13,6 +13,7 @@ import css from "./NavigationBar2.module.css";
 let NavigationBar = ({ toogleMenu, setToggleMenu }) => {
   let [menuDisplay, setMenuDisplay] = useState(false);
   let [loggedIn, setLoggedIn] = useState(localStorage.getItem("auth") || false);
+  const location = useLocation();
 
   const logoutHandler = () => {
     setLoggedIn(false);
@@ -33,9 +34,11 @@ let NavigationBar = ({ toogleMenu, setToggleMenu }) => {
             Zomato
           </Link>
         </div>
-        <div className={css.searchBar}>
-          <SearchBar />
-        </div>
+        {location.pathname !== "/checkout" && (
+          <div className={css.searchBar}>
+            <SearchBar />
+          </div>
+        )}
         <div className={css.rightSide}>
           {loggedIn ? (
             <div className={css.menuItem}>
@@ -73,7 +76,7 @@ let NavigationBar = ({ toogleMenu, setToggleMenu }) => {
                 {/* <Link to="/user/ll/network" className={css.menuItemLinkTxt}>
                   <div className={css.menuItemLink}>Network</div>
                 </Link> */}
-                
+
                 {/* Find Friends Section */}
                 {/* <Link to="/user/ll/find-friends" className={css.menuItemLinkTxt}>
                   <div className={css.menuItemLink}>Find Friends</div>
