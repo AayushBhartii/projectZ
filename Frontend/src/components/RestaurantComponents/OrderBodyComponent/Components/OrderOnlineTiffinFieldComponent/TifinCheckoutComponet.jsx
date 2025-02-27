@@ -6,6 +6,7 @@ import { useCheckout } from '../../../../../helpers/CheckoutProvider';
 import moment from "moment"
 import axios from 'axios';
 import OfferPopup from './Offer_Popup';
+import NavigationBar from '../../../../Navbars/NavigationBar2/NavigationBar2';
 import { useNavigate } from 'react-router-dom';
 import { detectLocation } from '../../../../HomeComponents/PopularPlaces/CurrentLocation/detectLocation';
 
@@ -47,16 +48,6 @@ const TiffinCheckoutPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [recentLocations, setRecentLocations] = useState([]);
   const [currentLocation, setCurrentLocation] = useState('');
-  // const [offers, setoffers] = useState(() => {
-  //   const storedOffers = localStorage.getItem("Offers");
-  //   return storedOffers ? JSON.parse(storedOffers) : [];
-  // });
-  // useEffect(() => {
-  //   if (Offers.length > 0) {
-  //     localStorage.setItem("Offers", JSON.stringify(Offers));
-  //   }
-  // }, [Offers]);
-  // console.log("ofers", offers)
 
   const filterMealType = mealType.filter(mealType =>
     selecetedMealType === mealType.mealTypeId
@@ -122,7 +113,6 @@ const TiffinCheckoutPage = () => {
     return true;
   };
 
-
   const validateUserDetails = () => {
     const errors = {};
     let isValid = true;
@@ -157,10 +147,6 @@ const TiffinCheckoutPage = () => {
     setValidationErrors(prev => ({ ...prev, [name]: '' }));
   }
 
-
-  // console.log("Offers", Offers)
-
-
   const handleApplyOffer = (offerCode) => {
     const offer = Offers.find(o => o.code === offerCode);
 
@@ -168,7 +154,7 @@ const TiffinCheckoutPage = () => {
       Plan
     )
 
-    console.log("Plan is:", pan);
+    // console.log("Plan is:", pan);
 
     if (!offer) {
       alert("Invalid offer code");
@@ -221,6 +207,9 @@ const TiffinCheckoutPage = () => {
     alert(`Offer applied successfully! You saved ₹${discountAmount}`);
   };
 
+  // console.log("Applied offer", activeOffer);
+  // console.log("Apply discount", appliedDiscount);
+
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString('en-GB'); // 'en-GB' uses DD/MM/YYYY format
   };
@@ -238,21 +227,8 @@ const TiffinCheckoutPage = () => {
 
   const planDates = getPlanDates(planType, startDate, endDate, selectedDates);
 
-
   const mealTypeName = filterMealType.map(meal => meal.label)
 
-  // const [cartItems, setCartItems] = useState([
-  //   {
-  //     id: 1,
-  //     name: mealTypeName,
-  //     price: totalPrice,
-  //     quantity: quantity,
-  //     planType: planType,
-  //     plan: selectedPlan,
-  //     TiffinName: TiffinName,
-  //     ...planDates
-  //   },
-  // ]);
   useEffect(() => {
     if (TiffinName && Address) {
       localStorage.setItem("Tiffin_Name", TiffinName);
@@ -328,7 +304,6 @@ const TiffinCheckoutPage = () => {
     }
   }, [cartItems]);
 
-
   const [addressType, setAddressType] = useState('current');
   const [showOtherCharges, setShowOtherCharges] = useState(false);
 
@@ -373,7 +348,6 @@ const TiffinCheckoutPage = () => {
 
   const finalTotal = calculateSubtotal() - appliedDiscount + deliveryCharge + totalOtherCharges;
   const formattedFinalTotal = Math.round(finalTotal);
-  // console.log(formattedFinalTotal);
 
   const handleInputChange = (e) => {
     setUserDetails({ ...userDetails, [e.target.name]: e.target.value });
@@ -408,7 +382,6 @@ const TiffinCheckoutPage = () => {
       address: address.length < 10 ? "Please enter a complete address (min 10 characters)" : "",
     }));
   };
-
 
   const initializeSubStatus = (order) => {
     const subStatus = [];
@@ -448,7 +421,6 @@ const TiffinCheckoutPage = () => {
     return subStatus;
   };
 
-
   const createCheckoutData = [
     {
       customer: userDetails.name,
@@ -462,6 +434,11 @@ const TiffinCheckoutPage = () => {
       tiffinAddress: tiffin_Address,
       email: "gamiyash15@gmail.com",
       total: `${formattedFinalTotal}`,
+      appliedOffer: activeOffer,
+      appliedDiscount: appliedDiscount,
+      appliedCharges: Charges,
+      appliedTaxes: Taxes,
+      subTotal: subtotal,
       status: "New Order",
       time: new Date(),
       startDate: cartItems[0].planType === "flexi-dates"
@@ -494,10 +471,11 @@ const TiffinCheckoutPage = () => {
   const updatedOrder = createCheckoutData.map(order => {
     return {
       ...order,
-      subStatus: initializeSubStatus(order),  // Generate subStatus for each order
+      subStatus: initializeSubStatus(order),
     };
   });
-  console.log("updatedOrdesr:", updatedOrder)
+  // console.log("updatedOrdesr:", updatedOrder);
+  console.log("Active offer:", activeOffer)
 
   const submitOrder = async () => {
     if (isSubmitting) return;
@@ -540,19 +518,14 @@ const TiffinCheckoutPage = () => {
       setIsSubmitting(false);
     }
   };
-  console.log("userDetails.mobile:", userDetails.mobile);
-  console.log("validationErrors:", validationErrors);
-  console.log("Checkout Data:", updatedOrder)
+  // console.log("userDetails.mobile:", userDetails.mobile);
+  // console.log("validationErrors:", validationErrors);
+  // console.log("Checkout Data:", updatedOrder)
 
   return (
     <>
       <div className='bg-[#f8f8f8] w-full'>
-        <div className='bg-white rounded-md w-[90vw]  mx-auto'>
-          <div className='flex justify-between p-4'>
-            <div><span className='font-bold'>TiffinName:- </span>{tiffin_Name}</div>
-            <div><span className='font-bold'>Address:-</span>{tiffin_Address}</div>
-          </div>
-        </div>
+        <div><NavigationBar /></div>
         <div>
           {showOfferPopup && (
             <OfferPopup
@@ -565,7 +538,7 @@ const TiffinCheckoutPage = () => {
             />
           )}
         </div>
-        <div className="w-[90vw] md:flex-row flex flex-col mx-auto mt-5 gap-10">
+        <div className="w-[80vw] md:flex-row flex flex-col mx-auto mt-2 gap-5">
           <div className="md:w-1/2 w-full bg-white shadow-md rounded-md p-5">
             <h2>Delivery Details</h2>
             <div className="user-form">
@@ -628,7 +601,14 @@ const TiffinCheckoutPage = () => {
           </div>
 
           <div className="md:w-1/2 w-full bg-white shadow-md rounded-md p-5">
-            <h2>Order Summary</h2>
+            <div className='flex items-center gap-2'>
+              <div><img width={45} src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_100,h_100,c_fill/2b4f62d606d1b2bfba9ba9e5386fabb7" alt="" /></div>
+              <div className='flex flex-col justify-start items-start mb-2'>
+                <div className='font-bold'>{tiffin_Name}</div>
+                <div>{tiffin_Address}</div>
+              </div>
+            </div>
+            {/* <h2>Order Summary</h2> */}
             {validationErrors.billing && (
               <div className="billing-error-message">
                 {validationErrors.billing}
