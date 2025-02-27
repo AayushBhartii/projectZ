@@ -16,7 +16,7 @@ import Dining from "./components/AddRestaurantComponents/AddRestaurantHeader/Din
 import Fooddelieverydining from "./components/AddRestaurantComponents/AddRestaurantHeader/Fooddelieverydining";
 import RestaurantRegistration from "./components/AddRestaurantComponents/AddRestaurantHeader/RestaurantRegistration";
 import InvestorRelations from "./components/Navbars/InvestorsRelation/InvestorRelations";
-import ClaimRestaurant from "./pages/ClaimRestaurant/ClaimRestaurant";
+
 import "./index.css";
 import CollectionPage from "./pages/CollectionPage/CollectionPage";
 import FilterPopupWindow from "./components/FilterPopupWindow/FilterPopupWindow";
@@ -48,6 +48,15 @@ import OrderHistory from "./components/RestaurantComponents/OrderBodyComponent/C
 import OrderNotificationBar from "./components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineTiffinFieldComponent/OrderNotificationComponet";
 import LiveLocation from "./components/RestaurantComponents/OrderBodyComponent/Components/OrderOnlineTiffinFieldComponent/Livelocation";
 
+import RestaurantListSection from "./components/ClaimRestaurantComponents/RestaurantListSection";
+import RestaurantClaimForm from "./components/ClaimRestaurantComponents/RestaurantClaimForm";
+
+import SuccessPage from "./components/ClaimRestaurantComponents/success";
+import ClaimsList from "./components/ClaimRestaurantComponents/ClaimsList";
+// import AdminPanel from "./components/HomeComponents/PopularPlaces/AdminPanel";
+import AddressSearch from "./components/HomeComponents/PopularPlaces/AddressSearch";
+
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <CheckoutProvider>
     <BrowserRouter>
@@ -57,7 +66,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route index element={<App />} />
         <Route path="/" element={<App />} />
         <Route path="/add-restaurant" element={<AddRestaurant />} />
-        <Route path="/RestaurantRegistration" element={<RestaurantRegistration />} />
+        <Route
+          path="/RestaurantRegistration"
+          element={<RestaurantRegistration />}
+        />
         <Route path="/collections" element={<CollectionPage />} />
         <Route path="/whoweare" element={<WhoWeAre />} />
         <Route path="/menucarousel" element={<MenuCarousel />} />
@@ -65,7 +77,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/blog" element={<Blog />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/workwithus" element={<WorkWithUs />} />
-        <Route path="/claim-restaurant" element={<ClaimRestaurant />} />
+        
         <Route path="/dining" element={<Dining />} />
         <Route path="/fooddelievetydining" element={<Fooddelieverydining />} />
         <Route path="/show-case" element={<ShowCase />} />
@@ -97,6 +109,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/blog/company" element={<Company />} />
         <Route path="/blog/culture" element={<Culture />} />
         <Route path="/blog/technology" element={<Technology />} />
+        <Route path="/restaurants" element={<RestaurantListSection />} />
+        <Route path="/claim-restaurant/:id" element={<RestaurantClaimForm />} />
+
+
+        <Route path="/SuccessPage" element={<SuccessPage />} />
+        <Route path="/ClaimsList" element={<ClaimsList />} />
+
+        <Route path="/addresses" element={<AddressSearch />}>
+          <Route path=":locality" element={<AddressSearch />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </CheckoutProvider>

@@ -7,23 +7,47 @@ import SearchBar from '../../../utils/SearchBar/SearchBar'
 import css from './HomePageBanner.module.css'
 
 import banner from '/banners/banner1.jpg'
-import { fetchCityFromIP } from '../PopularPlaces/LocatioBasedAPI/fetchCityFromIP';
+
 
 let HomePageBanner = () => {
-    let [toogleMenu, setToggleMenu] = useState(true);
-    const [city, setCity] = useState('Your City'); 
-    const [loading, setLoading] = useState(true); 
+    const [toogleMenu, setToggleMenu] = useState(true);
+    const [city, setCity] = useState("Your City");
+    const [loading, setLoading] = useState(true);
 
-    // Fetch user's city using the reusable API function
+    const API_URL = "http://localhost:4040"; // Your backend URL
+
+    const getCity = async () => {
+      try {
+        const response = await fetch(`${API_URL}/api/location`, {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.error) {
+          throw new Error(data.error);
+        }
+
+        setCity(data.city || "Unknown City");
+      } catch (error) {
+        console.error("Error fetching city:", error);
+        setCity("Your City"); // Fallback to a neutral message
+      } finally {
+        setLoading(false);
+      }
+    };
+
     useEffect(() => {
-        const getCity = async () => {
-            const fetchedCity = await fetchCityFromIP();
-            setCity(fetchedCity);
-            setLoading(false);
-        };
-
-        getCity();
+      getCity();
     }, []);
+    
 
     let toggleBanner = toogleMenu ? (<div className={css.banner}>
         <Navbar setToggleMenu={setToggleMenu} toogleMenu={toogleMenu} />

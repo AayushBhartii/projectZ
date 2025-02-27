@@ -34,7 +34,7 @@ const AddRestaurantHeader = () => {
             >
               Register your restaurant
             </button>
-            <Link to="/claim-restaurant" className={css.btn}>
+            <Link to="/restaurants" className={css.btn}>
               Restaurant already listed? Claim now
             </Link>
           </div>

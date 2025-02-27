@@ -21,6 +21,24 @@ export const CheckoutProvider = ({ children }) => {
     const [TiffinName, setTiffinName] = useState(null);
     const [Address, setAddress] = useState(null);
 
+    const resetCheckoutData = () => {
+        setselectedPlan(null);
+        setselecetedMealType(null);
+        setMealType([]);
+        setPlanType("normal");
+        setStartDate(new Date());
+        setEndDate(null);
+        setQuantity(1);
+        setTotalPrice(0);
+        setSelectedDates([]);
+        setTaxes([]);
+        setCharges([]);
+        setOffers([]);
+        setPlan([]);
+        setTiffinName(null);
+        setAddress(null);
+    };
+
     const value = {
         setAddress,
         Address,
@@ -52,6 +70,7 @@ export const CheckoutProvider = ({ children }) => {
         setTotalPrice,
         selectedDates,
         setSelectedDates,
+        resetCheckoutData
     };
 
     return (

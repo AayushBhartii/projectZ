@@ -7,7 +7,7 @@ const vendorRoutes = require("./routes/vendorRoutes");
 const bodyParser = require("body-parser");
 const firmRoutes = require("./routes/firmRoutes");
 const productRoutes = require("./routes/productsRoutes");
-const claimRoutes = require("./routes/claimRoutes");
+
 const path = require("path");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
@@ -18,11 +18,17 @@ const session = require("express-session");
 const googleAuthConfig = require("./config/google.config");
 const routeConfig = require("./config/route.config");
 
+const addressRoutes = require("./routes/addressRoutes");
+
+
+const restaurantRoutes = require("./routes/claimRestaurantRoutes");
+const restaurantClaimOwnersideRoutes = require("./routes/restaurantClaimOwersideRoutes");
+
 //from .env file
 const PORT = process.env.PORT || 4040;
 
 const Auth = require("./routes/auth");
-const otpRoutes = require("./routes/otp");
+
 const connectDB = require("./config/database.config");
 const { default: mongoose } = require("mongoose");
 
@@ -78,11 +84,16 @@ app.use(
 
 // app.use("/auth", Auth);
 // app.use("/api", otpRoutes);
-app.use("/claim", claimRoutes);
 app.use("/vendor", vendorRoutes);
 app.use("/firm", firmRoutes);
 app.use("/products", productRoutes);
 app.use("/uploads", express.static("uploads"));
+
+
+app.use("/api/restaurant-claims", restaurantClaimOwnersideRoutes);
+app.use("/api", restaurantRoutes);
+// Use the address routes
+app.use("/", addressRoutes);
 
 app.use("/", (req, res) => {
   res.send("<h1>This is Olcademy project</h1>");
