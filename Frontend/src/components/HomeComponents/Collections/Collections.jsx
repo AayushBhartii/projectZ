@@ -8,20 +8,40 @@ import CathTheMatachImg from "/images/cathcthematch.jpg";
 import NewInTownImg from "/images/newintown.jpg";
 import TrendingThisWeekImg from "/images/trendingthisweek.jpg";
 import CollectionsCard from "../../../utils/Cards/card2/CollectionsCard";
-import { fetchCityFromIP } from "../PopularPlaces/LocatioBasedAPI/fetchCityFromIP";
+
 
 const Collections = () => {
   const [city, setCity] = useState("Your City");
   const [loading, setLoading] = useState(true);
 
+  // Fetch city directly from backend
   useEffect(() => {
     const getCity = async () => {
-      const fetchedCity = await fetchCityFromIP();
-      setCity(fetchedCity);
-      setLoading(false);
+      try {
+        const response = await fetch("http://localhost:4040/api/location", {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setCity(data.city || "Your City");
+      } catch (error) {
+        console.error("Error fetching city:", error);
+        setCity("Your City");
+      } finally {
+        setLoading(false);
+      }
     };
+
     getCity();
   }, []);
+
 
   return (
     <div className={css.outerDiv}>

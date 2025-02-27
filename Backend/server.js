@@ -90,12 +90,16 @@ const session = require("express-session");
 const googleAuthConfig = require("./config/google.config");
 const routeConfig = require("./config/route.config");
 
+const addressRoutes = require("./routes/addressRoutes");
+const restaurantRoutes = require("./routes/claimRestaurantRoutes");
+const restaurantClaimOwnersideRoutes = require("./routes/restaurantClaimOwersideRoutes");
+
 //from .env file
 // const PORT = process.env.PORT || 4040;
 
-const Auth = require("./routes/auth");
-const otpRoutes = require("./routes/otp");
-const connectDB = require("./config/database.config");
+// const Auth = require("./routes/auth");
+// const otpRoutes = require("./routes/otp");
+// const connectDB = require("./config/database.config");
 const { default: mongoose } = require("mongoose");
 
 const swaggerOptions = {
@@ -170,6 +174,9 @@ app.use("/vendor", vendorRoutes);
 app.use("/firm", firmRoutes);
 app.use("/products", productRoutes);
 app.use("/uploads", express.static("uploads"));
+app.use("/api/restaurant-claims", restaurantClaimOwnersideRoutes);
+app.use("/api", restaurantRoutes);
+app.use("/", addressRoutes);
 
 app.use("/", (req, res) => {
   res.send("<h1>This is Olcademy project</h1>");
