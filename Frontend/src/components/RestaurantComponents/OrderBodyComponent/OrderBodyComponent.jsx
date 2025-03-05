@@ -1,75 +1,109 @@
-import {useState, useEffect} from 'react'
-import {NavLink, useParams} from "react-router-dom"
+import { useEffect, useState } from 'react';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import css from './OrderBodyComponent.module.css';
 
-import css from './OrderBodyComponent.module.css'
-
-import OverviewFieldComponent from './Components/OverviewFieldComponent/OverviewFieldComponent'
-import OrderOnlineFieldComponent from './Components/OrderOnlineFieldComponent/OrderOnlineFieldComponent'
-import PhotosComponent from './Components/PhotosComponent/PhotosComponent'
-import ReviewsComponent from './Components/ReviewsComponent/ReviewsComponent'
-import MenuComponent from './Components/MenuComponent/MenuComponent'
+import BookaTableComponent from './Components/BookaTableComponent/BookaTableComponent';
+import MenuComponent from './Components/MenuComponent/MenuComponent';
+import OrderOnlineFieldComponent from './Components/OrderOnlineFieldComponent/OrderOnlineFieldComponent';
+import TiffinServiceComponent from './Components/OrderOnlineTiffinFieldComponent/OrderOnlineTiffinFieldComponent';
+import OverviewFieldComponent from './Components/OverviewFieldComponent/OverviewFieldComponent';
+import PhotosComponent from './Components/PhotosComponent/PhotosComponent';
+import ReviewsComponent from './Components/ReviewsComponent/ReviewsComponent';
 
 const OrderBodyComponent = () => {
+  const [pageCompo, setPageComp] = useState(<OverviewFieldComponent />);
+  const navigate = useNavigate();
+  const { city, id, page } = useParams();
 
-    const [pageCompo, setPageComp] = useState("")
+  // Function to determine active class for menu items
+  const isActiveClass = (pageName) => {
+    if (!page && pageName === 'overview') {
+      return `${css.menuTxt} ${css.menuTxtActive}`;
+    }
+    return page === pageName
+      ? `${css.menuTxt} ${css.menuTxtActive}`
+      : `${css.menuTxt} ${css.menuTxtHover}`;
+  };
 
-    const {city, hotel, page=""} = useParams();
-
-    const isActiveClass = (e) => {
-        if(e?.isActive){
-            return [css.menuTxt, css.menuTxtActive].join(" ");
-        }else{
-            return css.menuTxt;
-        }
+  useEffect(() => {
+    // Redirect to the default overview page if no specific page is provided or if the page is invalid
+    if (!page || !['overview', 'order', 'reviews', 'photos', 'menu', 'bookatable', 'tiffins'].includes(page)) {
+      navigate(`/${city}/${id}/overview`, { replace: true });
+    } else {
+      switch (page) {
+        case 'overview':
+          setPageComp(<OverviewFieldComponent />);
+          break;
+        case 'order':
+          setPageComp(<OrderOnlineFieldComponent />);
+          break;
+        case 'reviews':
+          setPageComp(<ReviewsComponent />);
+          break;
+        case 'photos':
+          setPageComp(<PhotosComponent />);
+          break;
+        case 'menu':
+          setPageComp(<MenuComponent />);
+          break;
+        case 'bookatable':
+          setPageComp(<BookaTableComponent />);
+          break;
+        case 'tiffins':
+          setPageComp(<TiffinServiceComponent />);
+          break;
+        default:
+          setPageComp(<OverviewFieldComponent />);
+      }
     }
 
-    useEffect(()=> {
-        switch(`/${city}/${hotel}/${page}`){
-            case `/${city}/${hotel}/`:
-                setPageComp(<OverviewFieldComponent />);
-                break;
-            case `/${city}/${hotel}/order`:
-                setPageComp(<OrderOnlineFieldComponent />);
-                break;
-            case `/${city}/${hotel}/reviews`:
-                setPageComp(<ReviewsComponent />);
-                break;
-            case `/${city}/${hotel}/photos`:
-                setPageComp(<PhotosComponent />);
-                break;
-            case `/${city}/${hotel}/menu`:
-                setPageComp(<MenuComponent />);
-                break;
-            default: 
-                setPageComp(<OverviewFieldComponent />);
-        }
-    }, [city, hotel, page])
+    // Scroll behavior
+    if (!page || page === 'overview') {
+      // When the user first lands on the page or navigates to overview, scroll to the top
+      window.scrollTo({
+        top: 0,
+        // behavior: 'smooth',
+      });
+    } else {
+      // When navigating between sections, scroll to the middle
+      window.scrollTo({
+        top: window.innerHeight / 2,
+        behavior: 'smooth',
+      });
+    }
 
+  }, [city, id, page, navigate]);
 
-  return <div className={css.outerDiv}>
-    <div className={css.innerDiv}>
+  return (
+    <div className={css.outerDiv}>
+      <div className={css.innerDiv}>
         <div className={css.menu}>
-            <NavLink to={`/${city}/${hotel}/`} className={isActiveClass}>
-                Overview
-            </NavLink>
-            <NavLink to={`/${city}/${hotel}/order`} className={isActiveClass}>
-                Order Online
-            </NavLink>
-            <NavLink to={`/${city}/${hotel}/reviews`} className={isActiveClass}>
-                Reviews
-            </NavLink>
-            <NavLink to={`/${city}/${hotel}/photos`} className={isActiveClass}>
-                Photos
-            </NavLink>
-            <NavLink to={`/${city}/${hotel}/menu`} className={isActiveClass}>
-                Menu
-            </NavLink>
+          <NavLink to={`/${city}/${id}/overview`} className={() => isActiveClass('overview')}>
+            Overview
+          </NavLink>
+          <NavLink to={`/${city}/${id}/menu`} className={() => isActiveClass('menu')}>
+            Menu
+          </NavLink>
+          <NavLink to={`/${city}/${id}/order`} className={() => isActiveClass('order')}>
+            Takeaway
+          </NavLink>
+          <NavLink to={`/${city}/${id}/tiffins`} className={() => isActiveClass('tiffins')}>
+            Tiffins
+          </NavLink>
+          <NavLink to={`/${city}/${id}/photos`} className={() => isActiveClass('photos')}>
+            Photos
+          </NavLink>
+          <NavLink to={`/${city}/${id}/reviews`} className={() => isActiveClass('reviews')}>
+            Reviews
+          </NavLink>
+          <NavLink to={`/${city}/${id}/bookatable`} className={() => isActiveClass('bookatable')}>
+            Book a Table
+          </NavLink>
         </div>
-        <div className={css.componentsBody}>
-            {pageCompo}
-        </div>
-    </div>  
-  </div>
-}
+        <div className={css.componentsBody}>{pageCompo}</div>
+      </div>
+    </div>
+  );
+};
 
-export default OrderBodyComponent
+export default OrderBodyComponent;

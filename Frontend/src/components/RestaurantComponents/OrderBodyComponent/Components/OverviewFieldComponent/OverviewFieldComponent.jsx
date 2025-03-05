@@ -13,21 +13,18 @@ import LabelUtil from '../../../../../utils/RestaurantUtils/LabelUtil/LabelUtil'
 import RecentlyViewedCard from '../../../../../utils/Cards/RecentlyViewedCard/RecentlyViewedCard';
 import CollectionsCard from '../../../../../utils/Cards/card2/CollectionsCard';
 
-const OverviewFieldComponent = () => {
-  const { city, hotel, page = "" } = useParams();
-
-  const data = {
+const OverviewFieldComponent = ({
+  data = {
     phone: "9988098812",
-    address: "50000, Baner, Pune, Maharashtra, India", // Updated address to Pune
-    lat: 18.5204,  // Latitude for Pune
-    lng: 73.8567   // Longitude for Pune
-  };
-
-  const similarRest = [
+    address: "50000, Baner, Pune, Maharashtra, India",
+    lat: 18.5204,
+    lng: 73.8567
+  },
+  similarRest = [
     {
       id: 1,
       imgSrc: happyHoursImg,
-      name: "Zomato Biryani", // Replaced Tomato with Zomato
+      name: "Zomato Biryani",
       ratingsDining: 4.2,
       ratingsDelivery: 4.6,
       address: "Baner, Pune",
@@ -36,33 +33,34 @@ const OverviewFieldComponent = () => {
     {
       id: 2,
       imgSrc: happyHoursImg,
-      name: "Zomato Biryani", // Replaced Tomato with Zomato
+      name: "Zomato Biryani",
       ratingsDining: 4.2,
       ratingsDelivery: 4.6,
       address: "Baner, Pune",
       link: "#"
     }
-  ];
-
-  const labels = [
+  ],
+  labels = [
+    { link: "/", txt: "Biryani" },
+    { link: "/", txt: "Pizza" },
+    { link: "/", txt: "Continental" },
+    { link: "/", txt: "Chinese" },
     { link: "/", txt: "North Indian" },
-    { link: "/", txt: "South Indian" },
-    { link: "/", txt: "East Indian" },
-    { link: "/", txt: "West Indian" },
-    { link: "/", txt: "Desserts" }
-  ];
-
-  const menuData = [
-    { ttl: "Food Menu", imgSrc: food1, pages: "23" },
-    { ttl: "Food Menu Card", imgSrc: food1, pages: "30" }
-  ];
-
-  const moreInfo = ["Breakfast", "Takeaway Available", "Family Friendly", "Home Delivery", "Indoor Seating"];
-
-  const collectionData = [
+    { link: "/", txt: "Oriental" },
+    { link: "/", txt: "Asian" },
+    { link: "/", txt: "Pasta" }
+  ],
+  menuData = [
+    { ttl: "Shoebe", imgSrc: food1, pages: "9 pages" },
+    { ttl: "Bar Manu", imgSrc: food1, pages: "6 pages" }
+  ],
+  moreInfo = ["Breakfast", "Takeaway Available", "Family Friendly", "Home Delivery", "Indoor Seating"],
+  collectionData = [
     { imgSrc: CathTheMatachImg, title: "Catch the Match", places: "23" },
     { imgSrc: CathTheMatachImg, title: "Catch the Match", places: "30" }
-  ];
+  ]
+}) => {
+  const { city, hotel, page = "" } = useParams();
 
   return (
     <div className={css.outerDiv}>
@@ -98,7 +96,6 @@ const OverviewFieldComponent = () => {
             <div className={css.secTxt1}>Exclusive of applicable taxes and charges, if any</div>
             <div className={css.toolTipBox}>
               <div className={css.secTxtToolTip}>How do we calculate cost for two?</div>
-              {/* <div className={css.toolTip}>The cost for two is computed as follows: Average of 2 appetizers + 2 mains + 2 beverages + 1 dessert. The actual cost you incur at a restaurant might change depending on your appetite, or with changes in restaurant menu prices.</div> */}
             </div>
           </div>
           <div className={css.sec2}>

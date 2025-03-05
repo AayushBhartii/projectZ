@@ -1,3 +1,4 @@
+/* General Container Styles */
 .diningContainer {
   display: flex;
   justify-content: center;
@@ -5,19 +6,23 @@
   min-height: 100vh;
   background-color: #f9f9f9;
   padding: 20px;
+  font-family: 'Arial', sans-serif; /* Improved font */
 }
 
+/* Content Wrapper */
 .contentWrapper {
   display: flex;
   gap: 20px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px; /* Increased max width */
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px; /* Softened border radius */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  padding: 20px; /* Added padding for breathing room */
 }
 
+/* Left Side - Registration Steps */
 .registrationCard {
   flex: 1;
   background: #f5f5f5;
@@ -27,9 +32,11 @@
 }
 
 .registrationCard h2 {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 25px;
   text-align: center;
+  font-weight: bold; /* Added boldness for better emphasis */
+  color: #333;
 }
 
 .registrationCard ul {
@@ -43,13 +50,13 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding-left: 80px; /* Space for images */
-  margin-bottom: 80px; /* Increased spacing between steps */
+  padding-left: 80px;
+  margin-bottom: 50px; /* Reduced bottom margin */
 }
 
 .registrationCard ul li span {
   font-size: 16px;
-  color: #333;
+  color: #555; /* Slightly lighter text for better contrast */
 }
 
 .registrationCard ul li.active span {
@@ -64,29 +71,20 @@
 .registrationCard ul li::before {
   content: "";
   position: absolute;
-  left: 30px; /* Center the circle */
+  left: 30px;
   top: 0;
   width: 50px;
   height: 50px;
   background-size: cover;
   background-position: center;
   border-radius: 50%;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
   z-index: 2;
 }
 
-.registrationCard ul li:nth-child(1)::before {
-  background-image: url("/Project Images/both.avif");
-}
-
-.registrationCard ul li:nth-child(2)::before {
-  background-image: url("/Project Images/both.avif");
-}
-
-.registrationCard ul li:nth-child(3)::before {
-  background-image: url("/Project Images/both.avif");
-}
-
+.registrationCard ul li:nth-child(1)::before,
+.registrationCard ul li:nth-child(2)::before,
+.registrationCard ul li:nth-child(3)::before,
 .registrationCard ul li:nth-child(4)::before {
   background-image: url("/Project Images/both.avif");
 }
@@ -94,38 +92,38 @@
 .registrationCard ul li::after {
   content: "";
   position: absolute;
-  left: 54px; /* Center the line with the circles */
-  top: 50px; /* Start below the circle */
+  left: 54px;
+  top: 50px;
   width: 2px;
-  height: calc(100% - 50px); /* Adjust height to match spacing */
+  height: calc(100% - 50px);
   background-color: #ddd;
   z-index: 1;
 }
 
 .registrationCard ul li:last-child::after {
-  display: none; /* No line after the last item */
+  display: none;
 }
 
+/* Right Side - Form */
 .formWrapper {
   flex: 2;
-  padding: 20px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .header h1 {
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
   margin-bottom: 10px;
 }
 
 .header p {
   font-size: 16px;
-  color: #555;
+  color: #666;
   margin-bottom: 20px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
 }
 
 .formGroup {
@@ -135,15 +133,16 @@
 
 label {
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   color: #333;
 }
 
 input {
-  padding: 10px;
+  padding: 12px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin-bottom: 15px;
 }
 
 input:focus {
@@ -151,28 +150,144 @@ input:focus {
   border-color: #1747c4;
 }
 
-.phoneWrapper {
-  display: flex;
-  align-items: center;
-}
-
-.countryCode {
-  padding: 10px;
-  background: #f1f1f1;
-  border-right: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
-}
-
 .submitButton {
-  padding: 12px;
+  padding: 14px;
   background: #1747c4;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  width: 100%;
 }
 
 .submitButton:hover {
   background: #103ab2;
 }
+
+/* Phone Number Wrapper */
+.phoneWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flagWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f1f1;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.flag {
+  width: 25px;
+  height: 18px;
+  border-radius: 3px;
+}
+
+.countryCode {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.countrySelect {
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.phoneWrapper input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 0;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+/* Button Group */
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.buttonGroup button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonGroup button[type="submit"] {
+  background-color: #1747c4;
+  color: #fff;
+  border: none;
+}
+
+.buttonGroup button[type="submit"]:hover {
+  background-color: #103ab2;
+}
+
+.buttonGroup button[type="button"] {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.buttonGroup button[type="button"]:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contentWrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .registrationCard {
+    padding: 15px;
+  }
+
+  .formWrapper {
+    padding: 15px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buttonGroup button {
+    width: 100%;
+  }
+}
+/* Checkbox Container */
+.checkboxContainer {
+  display: flex;
+  align-items: center; /* Vertically center the checkbox and text */
+  gap: 8px; /* Space between the checkbox and the label */
+}
+
+/* Checkbox Input */
+.checkboxContainer input[type="checkbox"] {
+  margin: 0; /* Remove default margin */
+  width: 16px; /* Set a fixed width */
+  height: 16px; /* Set a fixed height */
+}
+
+/* Label for Checkbox */
+.checkboxContainer label {
+  margin: 0; /* Remove default margin */
+  font-size: 14px; /* Adjust font size as needed */
+  color: #333; /* Adjust text color as needed */
+}
+

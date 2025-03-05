@@ -1,16 +1,19 @@
 .outerDiv {
-    width: 98%;
-    height: 50px;
-    padding: 5px;
-    border-radius: 10px;
-    border: var(--brd4);
+    width: 100%;
+    max-width: 1000px; /* Balanced length for the search bar */
+    height: 60px;
+    padding: 10px 15px;
+    border-radius: 10px; /* Rounded corners for a modern look */
+    border: 1px solid #ddd;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: relative;
-    box-shadow: var(--box-shadow3);
-    background-color: var(--bg-white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin: 0 auto;
 }
+
 
 .srch1,
 .srch2 {
@@ -20,16 +23,16 @@
 }
 
 .srch1 {
-    width: 30%;
+    width: 60%;
 }
 
 .srch2 {
-    width: 70%;
+    width: 100%;
 }
 
 .hr {
     margin: 0px 5px;
-    height: 40%;
+    height: 50%;
     font-weight: 600;
     background-color: var(--color-p2-text);
 }
@@ -60,7 +63,7 @@
 
 .icon {
     width: 25px;
-    height: 23px;
+    height: 25px;
 }
 
 .dropdownBox {
@@ -73,4 +76,10 @@
     background-color: var(--bg-white);
     border-radius: 10px;
     border: var(--brd4);
+}
+.verticalLine {
+    width: 1px;
+    height: 20px; /* Height of the vertical line */
+    background-color: #bbb9b9; /* Grey color */
+    margin: 0 8px;
 }

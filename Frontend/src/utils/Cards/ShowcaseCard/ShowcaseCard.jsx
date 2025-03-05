@@ -11,7 +11,7 @@ import star from '/icons/star.png';
 let ShowcaseCard = (props) => {
     const { link2, promoted, time, offB, proExtraB, off, proExtra, name, rating, imgSrc } = props;
     let link = "/" + "hyderabad/paraside/order";
-    return <Link className={css.outerDiv} to={link}>
+    return <Link className={css.outerDiv} to={link2}>
         <div className={css.innerDiv}>
             <div className={css.imgBox}>
                 {promoted && <div className={css.promoted}>Promoted</div>}

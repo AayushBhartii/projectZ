@@ -1,25 +1,111 @@
-.outerDiv{
-    width: 100%;
-    height: 100%;
+/* Base Styles */
+.outerDiv {
+  padding: 2px;
+  font-family: "Roboto", sans-serif;
 }
 
-.ttl{
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--color-title-text);
-    margin: 1rem 0;
+.ttl {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #333;
 }
 
-.menuCard{
-    width: 100%;
-    height: 100%;
-    margin: 1rem 0;
-    display: flex;
-    flex-wrap: wrap;
+/* Sticky Heading Styles */
+.stickyHeading {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  position: sticky;
+  top: 40px;
+  background: white;
+  padding: 6px 0;
+  z-index: 9;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
 }
 
-@media all and (max-width: 480px){
-    .ttl{
-        font-size: 1.2rem;
-    }
+.stickyHeading:hover {
+  color: #f44336;
+  border-bottom: 2px solid #f44336;
+  padding-bottom: 8px;
+}
+
+/* Section Styles */
+.sections {
+  padding: 16px;
+}
+
+.itemsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* Updated Item Card Styles */
+.itemCard {
+ 
+
+  padding: 16px;
+  background-color: white;
+  position: relative;
+ 
+}
+
+.nameAndPrice {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px; /* Adds a little space between the dish name and price */
+}
+
+.nameContainer {
+  display: flex;
+  align-items: center;
+}
+
+.nameContainer strong {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin-left: 4px;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f44336;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.iconWrapper {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+
+.infoIcon {
+  width: 15px;
+  height: 15px;
+  position: absolute; /* Keeps it positioned relative to the itemCard */
+  bottom: 8px; /* Keeps it at the bottom of the card */
+  right: 16px; /* Adjusts the icon to move left from the edge */
+  cursor: pointer;
+}
+
+
+
+.vegIcon {
+  width: 16px;
+  height: 16px;
 }

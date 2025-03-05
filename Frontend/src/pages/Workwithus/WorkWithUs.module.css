@@ -1,0 +1,445 @@
+/* General Styles
+
+.container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .heroSection {
+    text-align: center;
+    padding: 50px 0;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .heroSection h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .heroSection p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  
+  .categoriesSection {
+    margin: 30px 0;
+  }
+  
+  .categoriesSection h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  .categoriesGrid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .categoryCard {
+    width: calc(33.333% - 20px);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .categoryCard:hover {
+    transform: translateY(-5px);
+    border-color: #ff7e5f;
+  }
+  
+  .categoryCard.selected {
+    border-color: #feb47b;
+    background: #fff9f4;
+    transform: scale(1.05);
+  }
+  
+  .categoryCard h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .categoryCard p {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .categoryDetails {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .categoryDetails h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .categoryDetails p {
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  .categoryDetails button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff7e5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .categoryDetails button:hover {
+    background-color: #feb47b;
+  }
+  
+  .teamSection {
+    margin: 30px 0;
+  }
+  
+  .teamSection h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  .teamGrid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .teamCard {
+    width: calc(33.333% - 20px);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .teamCard:hover {
+    transform: translateY(-5px);
+    border-color: #ff7e5f;
+  }
+  
+  .teamCard.selected {
+    border-color: #feb47b;
+    background: #fff9f4;
+    transform: scale(1.05);
+  }
+  
+  .teamCard h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .teamCard p {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContent {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modalContent h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  
+  .modalContent p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .closeModal {
+    padding: 10px 20px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .closeModal:hover {
+    background-color: darkred;
+  }
+  
+
+  .placeholder {
+    height: 100px;
+    background: linear-gradient(135deg, #ddd, #eee);
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+   */
+
+.bodyForWorkWithUs{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.mainScreen{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 10vh;
+  margin-left: 13vh;
+  align-items: center;
+  position: absolute;
+  color: white;
+  z-index: 999;
+}
+.mainScreen h1{
+  font-size: 4vh;
+  font-weight: 700;
+}
+.linkingList{
+  display: flex;
+  gap: 3vw;
+}
+.listenOne{
+  margin-left: 6vw;
+  margin-top: 11vh;
+  position: absolute;
+  color: white;
+  z-index: 999;
+  top: 15vh;
+}
+.listenOne h1 {
+  display: flex;
+  font-size: 5vw;
+  font-weight: 500;
+  line-height: 9vh;
+}
+.listenOne p{
+  font-size: 2vw;
+}
+
+.heroImage{
+  width: 100%;
+  height: 90%;
+}   
+
+.heroImage img{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: -1;
+}
+.whatMakeUs{
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(236, 222, 224);
+  /* position: relative; */
+}
+.whatMakeUs h1{
+  font-size: 4vw;
+  font-weight:700;
+  margin-left: 20vw;
+  padding-top: 10vh;
+  top: 10vh;
+}
+
+.boxes{
+  width: 80%;
+  height: 100%;
+  padding-left: 10vw;
+  padding-top: 5vh;
+  display: flex;
+  gap: 2vw;
+
+}
+
+.boxes .box{
+  width: 33%;
+  height: 50vh;
+  background-color: white;
+  border-radius: 7%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2vw;
+}
+
+.box h2{
+  font-size: 3.5vw;
+  border-bottom: 1px solid black;
+  line-height: 8vh;
+  padding-bottom: 2vh;
+}
+
+.box .image{
+  width: 100%;
+  height: 20%;
+  padding-left: 180px;
+}
+.image img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.employeeBenefits{
+    width: 100%;
+    height: 140vh;
+
+}
+
+.employeeBenefits h2 {
+    font-size: 3.5vw;
+    font-weight: 500;
+    padding: 20vh 50vh 10vh 50vh ;
+}
+.buildTogether h1{
+  font-size: 3.7vw;
+  margin-left: 30vw;
+  margin-bottom: 4vh;
+  font-weight: 600;
+}
+
+.imgContainers{
+  width: 70%;
+  height: 45vh;
+  /* background-color: violet */
+  display: flex;
+  gap: 1vw;
+  margin-left: 15%;
+  margin-bottom: 10vh;
+}
+.imgContainers .box1{
+  width: 33.33%;
+  height: 100%;
+  cursor: pointer;
+}
+.imgContainers img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7%;
+}
+
+.content1{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #D32F2F 20%, #E57373 50%, #D32F2F 80%);
+  padding: 2vw;
+  color: white;
+  font-size: 1.5vw;
+  border-radius: 10%;
+}
+
+.lifeAtZomato{
+  width: 70%;
+  margin-left: 14vw;
+  height: 80vh;
+  margin-top: 6vh;
+}
+.container1{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  gap: 1vw;
+  margin-bottom: 1vh;
+}
+.container1 .leftc1{
+  width: 65%;
+  height: 100%;
+  
+}
+
+.container1 .rightc1{
+  width: 35%;
+  height: 100%;
+}
+.rc1{
+  width: 100%;
+  height: 50%;
+}
+.rc2{
+  margin-top: 1vh ;
+  width: 100%;
+  height: 50%;
+}
+.lifeAtZomato img{
+  width: 100%;
+  height: 100%;
+  border-radius: 2%;
+  object-fit: cover ;
+  overflow: hidden;
+  object-position: center;
+}
+.lifeAtZomato h1{
+  font-size: 3vw;
+  font-weight: 400;
+  font-weight: 600;
+  margin-bottom: 5vh;
+  margin-left: 10vw;
+}
+.gapfor{
+  width: 100%;
+  height: 30vh;
+}
+.everyDay{
+  width: 100%;
+  height: 60vw;
+
+  position: relative;
+}
+.extraorinary{
+  width: 48%;
+  height: 100%;
+  color: white;
+  padding: 29vw 0vw 0 10vw;
+  position: absolute;
+}
+.extraorinary h1{
+  font-size: 4vw;
+  font-weight: 600; 
+  line-height:5vw; 
+}
+.extraorinary p{
+  font-size: 1.2vw;
+  padding-top: 3vw;
+}
+
+.everyDay img{
+  position: absolute;
+  z-index: -33;
+}

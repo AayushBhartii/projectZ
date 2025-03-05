@@ -19,7 +19,7 @@ const UsersTab = ({data}) => {
                     <div className={css.userDet}>
                         <span className={css.txtBox}><span className={css.count}>{data?.reviews}</span> <span className={css.txt1}>Reviews</span></span>
                         <span className={css.dot}></span>
-                        <span className={css.txtBox}><span className={css.count}>{data?.followers}</span> <span className={css.txt2}>Followers</span></span>
+                        {/* <span className={css.txtBox}><span className={css.count}>{data?.followers}</span> <span className={css.txt2}>Followers</span></span> */}
                     </div>
                 </div>
             </div>

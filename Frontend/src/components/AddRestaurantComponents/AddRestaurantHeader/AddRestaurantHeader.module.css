@@ -119,3 +119,9 @@
     
 }
 
+.helpTextLeft {
+    margin-left: -10px; /* Adjust as needed */
+    position: relative;
+    left: -30px;
+  }
+  

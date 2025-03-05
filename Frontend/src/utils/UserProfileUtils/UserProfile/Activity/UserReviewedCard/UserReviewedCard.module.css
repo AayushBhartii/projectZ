@@ -90,6 +90,7 @@
 }
 
 .starDiv{
+    display: flex;
     width: max-content;
     height: min-content;
     padding: 1px 3px;

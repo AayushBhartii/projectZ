@@ -1,96 +1,85 @@
 .navbar {
     width: 100%;
     height: 70px;
-    /* margin: 0.5rem 0; */
-    /* position: absolute; */
-    /* top: 0; */
     z-index: 5;
     color: var(--color-white);
     border-bottom: var(--brd2);
-}
-
-.navbarInner {
-    width: 70%;
+  }
+  
+  .navbarInner {
+    width: 85%; /* Increased navbar width for better layout */
     height: 100%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-}
-
-.menuBar {
+    gap: 4px;
+  }
+  
+  .menuBar {
     width: 20px;
     height: 20px;
     display: none;
     margin: 20px;
     filter: brightness(0) invert(1);
     cursor: pointer;
-}
-
-.mobileMenu {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    background-color: var(--bg-white);
-}
-
-.leftSide,
-.rightSide {
+  }
+  
+  .leftSide,
+  .rightSide {
     display: flex;
     align-items: center;
-}
+    margin-left: 9rem;
 
-.leftSide {
+  }
+  
+  .leftSide {
     cursor: pointer;
-}
-
-.img {
-    filter: brightness(0) invert(1);
-    height: 12px;
-    margin-top: 5px;
-    margin-right: 10px;
-}
-
-.appTxt {
+  }
+  
+  .appTxt {
     color: var(--color-title-text);
     font-size: 2rem;
     font-weight: 700;
     text-decoration: none;
-}
-
-.searchBar {}
-
-.menuItem {
+  }
+  
+  .searchBar {
+    width: 50%;
+    margin-left: -55px; /* Larger width for the search bar on desktop */
+  }
+  
+  .menuItem {
     color: var(--color-p2-text);
     text-decoration: none;
     margin-right: 1rem;
     font-size: 1.1rem;
     cursor: pointer;
-}
-
-.profile {
+  }
+  
+  .profile {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.profilePic {
+  }
+  
+  .profilePic {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-}
-
-.profileName {
+  }
+  
+  .profileName {
     margin: 0px 10px;
-}
-
-.arrow {
+  }
+  
+  .arrow {
     color: white;
-}
-
-.menu {
+  }
+  
+  .menu {
     position: absolute;
     top: 60px;
     width: 200px;
@@ -98,53 +87,61 @@
     background-color: var(--color-white);
     display: none;
     z-index: 1;
-}
-
-.profile:hover .menu {
+  }
+  
+  .profile:hover .menu {
     display: block;
     background-color: red !important;
-}
-
-.menuItemLink {
+  }
+  
+  .menuItemLink {
     padding: 0.6rem;
     cursor: pointer;
     font-size: 1rem;
-}
-
-.menuItemLinkTxt:first-child > .menuItemLink {
+  }
+  
+  .menuItemLinkTxt:first-child > .menuItemLink {
     border-radius: 10px 10px 0 0;
-}
-
-.menuItemLinkTxt:last-child > .menuItemLink {
+  }
+  
+  .menuItemLinkTxt:last-child > .menuItemLink {
     border-radius: 0 0 10px 10px;
-}
-
-.menuItemLink:hover {
+  }
+  
+  .menuItemLink:hover {
     background-color: var(--bg-ash);
-}
-
-.menuItemLinkTxt {
+  }
+  
+  .menuItemLinkTxt {
     width: 100%;
     color: var(--color-title-text);
     font-weight: 350;
     text-decoration: none;
-}
-
-.dnone {
-    display: none;
-}
-
-@media all and (max-width: 480px) {
-    .searchBar{
-        display: none;
+  }
+  
+  @media all and (max-width: 1024px) {
+    .navbarInner {
+      width: 95%;
+      gap: 0.5rem;
     }
-}
-
-@media all and (max-width: 1024px) {
-    .navbarInner{
-        width: 90%;
+    .searchBar {
+      width: 60%; /* Increased search bar width for tablets */
     }
-    .searchBar{
-        width: 50%;
+  }
+  
+  @media all and (max-width: 480px) {
+    .navbarInner {
+      width: 100%;
+      gap: 0;
     }
-}
+    .searchBar {
+      width: 100%; /* Full width for mobile screens */
+      display: block;
+    }
+  }
+  .leftSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Adjust gap for proximity */
+  }
+  

@@ -4,12 +4,14 @@
     margin: 0.5rem;
 }
 
-.innerDiv{
+.innerDiv {
     width: 100%;
     height: auto;
     display: flex;
-    flex-wrap: wrap;
-}
+    flex-direction: column; /* Stacks the cards in a column */
+    gap: 1rem;
+  }
+    
 
 @media all and (max-width: 420px){
     .outerDiv{

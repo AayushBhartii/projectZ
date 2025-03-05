@@ -1,52 +1,67 @@
-.rating{
+.rating {
     margin: 0.2rem;
     width: 35px;
     height: 30px;
     display: flex;
     justify-content: center;
+    align-items: center; /* Ensure number is vertically aligned */
     border: var(--brd1);
     border-radius: 5px;
     cursor: pointer;
-}
-
-.acRatingR{
+  }
+  
+  .acRatingR {
     background-color: var(--bg-redish1);
-}
-.acRatingR2{
+    color: var(--color-white); /* Ensure rating number visibility */
+  }
+  
+  .acRatingR2 {
     background-color: var(--bg-redish5);
-}
-.acRatingYG{
+    color: var(--color-white);
+  }
+  
+  .acRatingYG {
     background-color: var(--bg-goldish);
-}
-.acRatingG{
+    color: var(--color-black); /* Improve text contrast */
+  }
+  
+  .acRatingG {
     background-color: var(--bg-greenish);
-}
-.acRatingDG{
+    color: var(--color-white);
+  }
+  
+  .acRatingDG {
     background-color: var(--bg-dark-greenish);
-}
-
-.rtgTxt{
+    color: var(--color-white);
+  }
+  
+  .rtgTxt {
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-p1-text);
-}
-
-.acRtgTxt{
+    z-index: 1; /* Keep text above background */
+  }
+  
+  .acRtgTxt {
     color: var(--color-white);
-}
-
-.imgBox{
+  }
+  
+  .imgBox {
     width: 12px;
     height: 12px;
     margin: 0 0.2rem;
-}
-
-.icon{
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
     width: 100%;
     height: 100%;
-    filter: brightness(0) saturate(100%) invert(76%) sepia(8%) saturate(10%) hue-rotate(319deg) brightness(82%) contrast(86%);
-}
-
-.acIcon{
+    filter: brightness(0) saturate(100%) invert(76%) sepia(8%) saturate(10%) 
+            hue-rotate(319deg) brightness(82%) contrast(86%);
+  }
+  
+  .acIcon {
     filter: invert(1);
-}
+  }
+  
